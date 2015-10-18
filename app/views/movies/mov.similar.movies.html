@@ -1,0 +1,10 @@
+<div class="grid_2 col_1" ng-repeat="movies in similarMovies" data-ng-if="$index < 4">
+    <img src="{{imageUrl}}{{movies.backdrop_path}}" class="img-responsive" alt="{{movies.title}}">
+    <div class="caption1">
+        <ul class="list_3 list_7">
+            <li><i class="icon5"> </i><p>3,548</p></li>
+        </ul>
+        <i class="icon4 icon7"> </i>
+        <p class="m_3">{{movies.title}}</p>
+    </div>
+</div>

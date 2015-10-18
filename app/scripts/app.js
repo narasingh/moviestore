@@ -1,142 +1,55 @@
-/**
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+(function(){
+    'use strict';
+    /**
+     * Initialize our application routes
+     */
+    angular.module('movapp',
+        ['ngStorage', 'angularSpinner', 'mov.api', 'mov.common', 'mov.account', 'mov.movies','mov.featured', 'dc.endlessScroll', 'ui.router','angularUtils.directives.dirPagination'])
+        .config(['$stateProvider' , '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-'use strict';
+            $urlRouterProvider.otherwise('/home');
+            $stateProvider
+                .state('home', {
+                    url : '/home',
+                    templateUrl: 'views/movies/featured-movies.html',
+                    controller: 'movFeaturedController'
+                })
+                .state('movies', {
+                    url : '/moviedetails/:id',
+                    templateUrl: 'views/movies/movies-details.html',
+                    controller: 'movDetailsController'
+                })
+                .state('nowplaying', {
+                    url : '/nowplaying',
+                    templateUrl: 'views/movies/movies-playing.html',
+                    controller: 'MovLatestMoviesController as LatestMoviesCtrl'
+                }).state('upcoming', {
+                    url : '/upcoming',
+                    templateUrl : 'views/movies/movies-upcoming.html',
+                    controller : 'MovUpcomingController as movUpcomingCtrl'
+                })
+                .state('movielist', {
+                    url : '/movies',
+                    templateUrl : 'views/movies/movies-list.html',
+                    controller : 'MovUpcomingController as movUpcomingCtrl'
+                });
+        }])
+        .constant('CONFIG', {
+            'baseUrl' : 'http://api.themoviedb.org/3/',
+            'key' : '6fbb0ef60b41be2618fdba45a982f5af'
+        })
+        .run(['movCommonApi','$rootScope', '$state', function(movCommonApi, $rootScope){
+            //make onload calls
+            movCommonApi.setConfiguration();
+            movCommonApi.setSessionId();
 
-var CONFIG = {
-  clientId: '502747173299.apps.googleusercontent.com',
-  scopes: [
-    'https://www.googleapis.com/auth/drive.file',
-    'https://www.googleapis.com/auth/drive.install'
-  ]
-};
+            //handle state change
+            $rootScope.$on('$stateChangeStart', function(event, toState){
+                //check that user is logged in
+               $rootScope.currentState = function(state){
+                   return (typeof state === 'object' && state.indexOf(toState.name) > -1) || (toState.name === state);
+               };
+            });
 
-var app = {};
-
-app.module = angular.module('todos', []);
-
-/**
- * A simple type for todo items.
- * @constructor
- */
-app.Todo = function () {
-};
-
-/**
- * Initializer for constructing via the realtime API
- *
- * @param title
- */
-app.Todo.prototype.initialize = function (title) {
-  var model = gapi.drive.realtime.custom.getModel(this);
-  this.title = model.createString(title);
-  this.completed = false;
-  this.setup();
-};
-
-/**
- * Adds a "text" property to collaborative strings for ng-model compatibility
- * after a model is created or loaded.
- */
-app.Todo.prototype.setup = function() {
-  Object.defineProperty(this.title, 'text', {
-    set: this.title.setText,
-    get: this.title.getText
-  });
-};
-
-/**
- * Loads the document. Used to inject the collaborative document
- * into the main controller.
- *
- * @param $route
- * @param storage
- * @returns {*}
- */
-app.loadFile = function ($route, storage) {
-  var id = $route.current.params.fileId;
-  var userId = $route.current.params.user;
-  return storage.requireAuth(true, userId).then(function () {
-    return storage.getDocument(id);
-  });
-};
-app.loadFile.$inject = ['$route', 'storage'];
-
-/**
- * Initialize our application routes
- */
-app.module.config(['$routeProvider',
-  function ($routeProvider) {
-    $routeProvider
-      .when('/todos/:fileId/:filter', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        resolve: {
-          realtimeDocument: app.loadFile
-        }
-      })
-      .when('/create', {
-        templateUrl: 'views/loading.html',
-        controller: 'CreateCtrl'
-      })
-      .when('/install', {
-        templateUrl: 'views/install.html',
-        controller: 'InstallCtrl'
-      })
-      .otherwise({
-        redirectTo: '/install'
-      });
-  }]
-);
-
-app.module.value('config', CONFIG);
-
-/**
- * Set up handlers for various authorization issues that may arise if the access token
- * is revoked or expired.
- */
-app.module.run(['$rootScope', '$location', 'storage', function ($rootScope, $location, storage) {
-  // Error loading the document, likely due revoked access. Redirect back to home/install page
-  $rootScope.$on('$routeChangeError', function () {
-    $location.url('/install?target=' + encodeURIComponent($location.url()));
-  });
-
-  // Token expired, refresh
-  $rootScope.$on('todos.token_refresh_required', function () {
-    storage.requireAuth(true).then(function () {
-      // no-op
-    }, function () {
-      $location.url('/install?target=' + encodeURIComponent($location.url()));
-    });
-  });
-}]);
-
-/**
- * Bootstrap the app
- */
-gapi.load('auth:client:drive-share:drive-realtime', function () {
-  gapi.auth.init();
-
-  // Register our Todo class
-  app.Todo.prototype.title = gapi.drive.realtime.custom.collaborativeField('title');
-  app.Todo.prototype.completed = gapi.drive.realtime.custom.collaborativeField('completed');
-
-  gapi.drive.realtime.custom.registerType(app.Todo, 'todo');
-  gapi.drive.realtime.custom.setInitializer(app.Todo, app.Todo.prototype.initialize);
-  gapi.drive.realtime.custom.setOnLoaded(app.Todo, app.Todo.prototype.setup);
-
-  $(document).ready(function () {
-    angular.bootstrap(document, ['todos']);
-  });
-});
+        }]);
+}());

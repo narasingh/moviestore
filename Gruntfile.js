@@ -198,10 +198,11 @@ module.exports = function (grunt) {
   grunt.registerTask('server', [
     'clean:server',
     'compass:server',
-    'livereload-start',
+    //'livereload-start',
     'connect:livereload',
     'open',
-    'watch'
+    'watch',
+    'jshint'
   ]);
 
   grunt.registerTask('build', [

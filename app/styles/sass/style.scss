@@ -1,0 +1,1931 @@
+@import "variable.scss";
+//@extend-elements
+//original selectors
+//[data-tooltip]:before, [data-tooltip]:after
+%extend_1 {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 999999;
+}
+
+//original selectors
+//ul.list_1, ul.list_3, ul.list_4
+%extend_2 {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+//original selectors
+//i.icon1, i.icon2, i.icon3
+%extend_3 {
+	width: 20px;
+	height: 20px;
+	background: $url_0 -7px -42px;
+	float: left;
+	margin-right: 8%;
+}
+
+//original selectors
+//ul.list_3 li p, ul.list_5 li p
+%extend_4 {
+	float: left;
+	color: $white;
+	font-size: 1.2em;
+}
+
+//original selectors
+//ul.list_4 li, ul.list_6 li
+%extend_5 {
+	color: $color_bright_gray_approx;
+	font-weight: 600;
+	font-size: 1.1em;
+	display: flex;
+	line-height: 2em;
+}
+
+//original selectors
+//.nbs-flexisel-nav-left, .nbs-flexisel-nav-right
+%extend_6 {
+	width: 45px;
+	height: 45px;
+	position: absolute;
+	cursor: pointer;
+	z-index: 100;
+	margin-top: -2em;
+}
+
+//original selectors
+//.data p, .data-middle, .data-last p
+%extend_7 {
+	color: $color_mountain_mist_approx;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+//original selectors
+//.text input[type="text"], .text textarea
+%extend_8 {
+	width: 70%;
+	font-size: 1.1em;
+	margin: 10px 0;
+	border: none;
+	color: $color_mountain_mist_approx;
+	outline: none;
+	background: $white;
+	height: 120px;
+	padding: 10px;
+	resize: none;
+}
+
+//original selectors
+//.login-left h3, .login-right h3
+%extend_9 {
+	color: $black;
+	font-size: 1.5em;
+	padding-bottom: 0.5em;
+}
+
+//original selectors
+//.login-left p, .login-right p
+%extend_10 {
+	color: $color_mountain_mist_approx;
+	display: block;
+	font-size: 1em;
+	margin: 0 0 1.5em 0;
+	line-height: 1.5em;
+}
+
+//original selectors
+//.acount-btn:hover, .login-right input[type="submit"]:hover
+%extend_11 {
+	background: $color_bright_gray_approx;
+	text-decoration: none;
+	color: $white;
+}
+
+//original selectors
+//.register-top-grid h3, .register-bottom-grid h3
+%extend_12 {
+	color: $black;
+	font-size: 1.5em;
+	padding-bottom: 20px;
+	margin: 0;
+}
+
+//original selectors
+//.register-top-grid div, .register-bottom-grid div
+%extend_13 {
+	width: 48%;
+	float: left;
+	margin: 10px 0;
+}
+
+//original selectors
+//.register-top-grid span, .register-bottom-grid span
+%extend_14 {
+	color: $color_mountain_mist_approx;
+	display: block;
+	font-size: 1em;
+}
+
+//original selectors
+//.register-top-grid input[type="text"], .register-bottom-grid input[type="text"]
+%extend_15 {
+	border: 1px solid $color_gallery_approx;
+	outline-color: $color_outrageous_orange_approx;
+	width: 96%;
+	font-size: 1em;
+	padding: 0.5em;
+}
+
+//original selectors
+//ul.list_3, ul.list_5
+%extend_16 {
+	top: -215px;
+	width: 30%;
+	left: 210px;
+}
+
+//original selectors
+//ul.list_3, ul.list_5
+%extend_17 {
+	top: -200px;
+	width: 30%;
+	left: 10px;
+}
+
+
+h4 {
+	margin-top: 0;
+	&.title {
+		color: $black;
+		margin-bottom: 0.5em;
+		text-transform: uppercase;
+		border-bottom: 1px solid $color_alto_approx;
+		padding-bottom: 13px;
+	}
+}
+h5 {
+	margin-top: 0;
+}
+h6 {
+	margin-top: 0;
+}
+h1 {
+	margin-top: 0;
+	&.m_2 {
+		float: left;
+		color: $color_bright_gray_approx;
+		font-size: 1.3em;
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+	&.recent {
+		padding: 0 15px;
+		margin: 1em 0;
+		color: $black;
+	}
+}
+h2 {
+	margin-top: 0;
+	&.m_3 {
+		padding: 0 15px;
+		color: $black;
+		margin-bottom: 1em;
+	}
+}
+h3 {
+	margin-top: 0;
+}
+ul {
+	margin: 0;
+	&.header_right_box {
+		padding: 0;
+		margin: 0 0 0 33%;
+		list-style: none;
+		li {
+			float: left;
+			margin: 0 3%;
+			p {
+				font-size: 1.2em;
+				font-weight: 600;
+				margin-top: 4px;
+				a {
+					color: $color_bright_gray_approx;
+					&:hover {
+						text-decoration: none;
+						color: $color_alizarin_crimson_approx;
+					}
+				}
+			}
+			&.last {
+				margin-right: 0;
+			}
+		}
+	}
+	&.list_1 {
+		@extend %extend_2;
+		li {
+			display: inline-block;
+			color: $white;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 1.2em;
+			margin-right: 5%;
+		}
+	}
+	&.list_3 {
+		@extend %extend_2;
+		position: absolute;
+		top: -184px;
+		left: 15px;
+		width: 100%;
+		li p {
+			@extend %extend_4;
+		}
+	}
+	&.list_4 {
+		@extend %extend_2;
+		padding: 1em;
+		li {
+			@extend %extend_5;
+			p {
+				float: left;
+			}
+		}
+	}
+	&.list_5 {
+		position: absolute;
+		top: -160px;
+		left: 15px;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li p {
+			@extend %extend_4;
+		}
+	}
+	&.list_6 {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li {
+			@extend %extend_5;
+		}
+	}
+	&.list_7 {
+		top: -208px;
+	}
+	&.first {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li a {
+			color: $color_star_dust_approx;
+			font-size: 15px;
+			line-height: 1.8em;
+			&:hover {
+				text-decoration: none;
+				color: $color_alizarin_crimson_approx;
+			}
+		}
+	}
+	&.single_list {
+		margin-bottom: 30px;
+		padding: 30px 0 0;
+		list-style: none;
+		margin: 0;
+		li {
+			padding-bottom: 30px;
+		}
+	}
+	&.callbacks_tabs.callbacks1_tabs {
+		position: absolute;
+		bottom: 50%;
+		z-index: 999;
+		left: 0;
+		list-style: none;
+	}
+	&.list_2 li {
+		display: inline-block;
+		width: 32%;
+		margin-right: 0;
+		p {
+			float: left;
+		}
+	}
+}
+ol {
+	margin: 0;
+}
+p {
+	margin: 0;
+	&.m_3 {
+		position: absolute;
+		top: -30px;
+		color: $white;
+		font-size: 1.1em;
+		width: 100%;
+		text-align: center;
+	}
+	&.movie_option {
+		font-size: 15px;
+		margin-bottom: 15px;
+		a {
+			color: $color_fuscous_gray_approx;
+		}
+	}
+	&.m_4 {
+		color: $color_suva_gray_approx;
+		font-size: 1em;
+		line-height: 1.8em;
+		margin: 3em 0;
+	}
+	&.cart {
+		color: $color_mountain_mist_approx;
+		line-height: 1.8em;
+	}
+	&.movie__option a {
+		font-weight: 500;
+		font-size: 1em;
+		color: $black;
+	}
+}
+html {
+	font-family: $font_0, $font_1;
+	background: $color_bright_gray_approx;
+}
+body {
+	font-family: $font_0, $font_1;
+	background: $color_bright_gray_approx;
+	a {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: 0.5s all;
+	}
+}
+.container_wrap {
+	padding: 5em 0;
+}
+.header_top {
+	background: $white;
+	padding: 2em 1em 1.8em;
+	//Instead of the line below you could use @include border-top-left-radius($radius)
+	border-top-left-radius: 3px;
+	//Instead of the line below you could use @include border-top-right-radius($radius)
+	border-top-right-radius: 3px;
+}
+.logo {
+	margin-top: 4px;
+}
+.nav {
+	text-align: center;
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	li {
+		margin: 0 4% 0 0;
+		display: inline-block;
+		a {
+			height: 30px;
+			width: 30px;
+			display: block;
+			&:hover {
+				zoom: 1;
+				filter: alpha(opacity=50);
+				opacity: 0.8;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: opacity .15s ease-in-out;
+			}
+		}
+		&:nth-child(1) a {
+			background: $url_0 -7px -9px;
+		}
+		&:nth-child(2) a {
+			background: $url_0 -49px -8px;
+		}
+		&:nth-child(3) a {
+			background: $url_0 -90px -9px;
+		}
+		&:nth-child(4) a {
+			background: $url_0 -130px -8px;
+		}
+		&:nth-child(5) a {
+			background: $url_0 -175px -9px;
+		}
+		&:nth-child(6) a {
+			background: $url_0 -216px -9px;
+		}
+	}
+}
+[data-tooltip] {
+	position: relative;
+	display: inline-block;
+	&.simptip-position-bottom {
+		&:before {
+			border-bottom-color: $color_alizarin_crimson_approx;
+		}
+		&:after {
+			background-color: $color_alizarin_crimson_approx;
+			color: $white;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 5px;
+		}
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		border-width: 6px;
+		border-style: solid;
+		border-color: rgba(0, 0, 0, 0);
+		@extend %extend_1;
+	}
+	&:after {
+		@extend %extend_1;
+		height: 25px;
+		padding: 7px 12px 0;
+		font-size: 13px;
+		line-height: 11px;
+		content: attr(data-tooltip);
+		white-space: nowrap;
+		text-transform: uppercase;
+	}
+	&:hover {
+		background-color: rgba(0, 0, 0, 0);
+		&:before {
+			visibility: visible;
+			opacity: 1;
+		}
+		&:after {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+	&:focus {
+		background-color: rgba(0, 0, 0, 0);
+		&:before {
+			visibility: visible;
+			opacity: 1;
+		}
+		&:after {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+.simptip-position-bottom {
+	&.simptip-movable {
+		&:before {
+			margin-top: -15px;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .1s linear;
+		}
+		&:after {
+			margin-top: -3px;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .1s linear;
+		}
+		&:hover {
+			&:before {
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: translateY(10px);
+			}
+			&:after {
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: translateY(10px);
+			}
+		}
+	}
+	&:before {
+		left: 32%;
+		top: 140%;
+	}
+	&:after {
+		left: 32%;
+		top: 140%;
+		margin-left: -18px;
+	}
+}
+.simptip-position-top {
+	&:before {
+		left: 32%;
+	}
+	&:after {
+		left: 32%;
+		margin-left: -18px;
+	}
+	&.simptip-movable {
+		&:before {
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .1s linear;
+		}
+		&:after {
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .1s linear;
+		}
+	}
+}
+i {
+	&.edit {
+		width: 20px;
+		height: 25px;
+		background: $url_0 -258px -9px;
+		display: inline-block;
+	}
+	&.icon1 {
+		@extend %extend_3;
+	}
+	&.icon2 {
+		@extend %extend_3;
+		background: $url_0 -33px -42px;
+	}
+	&.icon3 {
+		@extend %extend_3;
+		background: $url_0 -60px -42px;
+	}
+	&.icon4 {
+		width: 20px;
+		height: 20px;
+		background: $url_0 -85px -46px;
+		display: inline-block;
+		position: absolute;
+		top: -184px;
+		right: 15px;
+	}
+	&.icon5 {
+		width: 20px;
+		height: 20px;
+		background: $url_0 -7px -42px;
+		float: left;
+		margin-right: 4%;
+	}
+	&.icon6 {
+		top: -160px;
+	}
+	&.icon7 {
+		top: -208px;
+	}
+}
+.slider {
+	position: relative;
+}
+.rslides {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	li {
+		position: absolute;
+		display: none;
+		width: 100%;
+		left: 0;
+		top: 0;
+		&:first-child {
+			position: relative;
+			display: block;
+			float: left;
+		}
+	}
+	img {
+		display: block;
+		height: auto;
+		float: left;
+		width: 100%;
+		border: 0;
+	}
+}
+.caption {
+	width: 56%;
+	position: absolute;
+	top: 35%;
+	left: 20%;
+	text-align: center;
+	h3 {
+		color: $white;
+		font-weight: 700;
+		font-size: 1.8em;
+		text-transform: uppercase;
+	}
+	p {
+		color: $white;
+		line-height: 1.5em;
+		font-size: 0.875em;
+		text-align: center;
+		margin: 1em 0 1.5em 0;
+	}
+}
+a {
+	&.morebtn {
+		background: $color_masala_approx;
+		padding: 0.8em 0;
+		display: block;
+		font-size: 0.875em;
+		text-transform: uppercase;
+		color: $white;
+		width: 20%;
+		margin: 0 auto;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: 0.5s all ease;
+		&:hover {
+			background: $color_comet_approx;
+		}
+	}
+	&.movie__title {
+		color: $black;
+		font-weight: 600;
+		font-size: 1.1em;
+	}
+	&.forgot {
+		font-size: 0.85em;
+		color: $black;
+	}
+	&.btn1:hover {
+		background: $color_bright_gray_approx;
+		color: $white;
+		text-decoration: none;
+	}
+}
+.callbacks_tabs {
+	a {
+		visibility: hidden;
+		&:after {
+			content: "\f111";
+			font-size: 0;
+			font-family: $font_2;
+			visibility: visible;
+			display: block;
+			height: 12px;
+			width: 12px;
+			display: inline-block;
+			background: $white;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 50px;
+		}
+	}
+	li {
+	}
+}
+.callbacks_nav {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	opacity: 0.7;
+	z-index: 3;
+	text-indent: -9999px;
+	overflow: hidden;
+	text-decoration: none;
+	height: 117px;
+	width: 30px;
+	background: transparent $url_1 no-repeat left top;
+	margin-top: -45px;
+	&.next {
+		left: auto;
+		background-position: right top;
+		right: 0;
+	}
+}
+@media(max-width:1024px) {
+	.caption {
+		width: 63%;
+		top: 31%;
+		left: 19%;
+	}
+}
+@media(max-width:768px) {
+	.caption {
+		width: 70%;
+		top: 22%;
+		left: 13%;
+		h3 {
+			font-size: 1.5em;
+		}
+	}
+	.callbacks_nav {
+		top: 55%;
+	}
+	a.morebtn {
+		width: 26%;
+	}
+}
+@media(max-width:640px) {
+	.caption {
+		width: 70%;
+		top: 12%;
+		left: 13%;
+		h3 {
+			font-size: 1.5em;
+		}
+	}
+	a.morebtn {
+		width: 30%;
+	}
+	.callbacks_tabs a:after {
+		height: 10px;
+		width: 10px;
+	}
+}
+@media(max-width:480px) {
+	.caption {
+		width: 70%;
+		top: 14%;
+		left: 13%;
+		p {
+			height: 25px;
+			overflow: hidden;
+			margin: 0.5em 0;
+		}
+		h3 {
+			font-size: 1.4em;
+		}
+	}
+	.callbacks_nav {
+		top: 60%;
+	}
+	a.morebtn {
+		width: 40%;
+		font-size: 0.8em;
+	}
+	.callbacks_tabs a:after {
+		height: 4px;
+		width: 4px;
+	}
+	ul.callbacks_tabs.callbacks1_tabs {
+	}
+}
+@media(max-width:320px) {
+	.caption {
+		width: 70%;
+		top: 14%;
+		left: 13%;
+		p {
+			height: 25px;
+			overflow: hidden;
+			margin: 0.2em 0;
+		}
+		h3 {
+			font-size: 1em;
+		}
+	}
+	.callbacks_nav {
+		top: 63%;
+	}
+	a.morebtn {
+		width: 50%;
+		font-size: 0.8em;
+		padding: 0.6em 0.5em;
+	}
+	.callbacks_tabs a:after {
+		height: 4px;
+		width: 4px;
+	}
+	ul.callbacks_tabs.callbacks1_tabs {
+		bottom: 10px;
+		left: 4px;
+	}
+}
+.button {
+	display: block;
+	z-index: 2;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: none;
+	margin: 0;
+	max-width: none;
+	position: absolute;
+	top: 58%;
+	right: 15%;
+	a {
+		text-decoration: none;
+		color: $white;
+		background: $color_alizarin_crimson_approx;
+		padding: 8px 20px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 5px;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 1.2em;
+	}
+}
+.hvr-shutter-out-horizontal {
+	display: inline-block;
+	vertical-align: middle;
+	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+	transform: translateZ(0);
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	//Instead of the line below you could use @include backface-visibility($visibility)
+	backface-visibility: hidden;
+	position: relative;
+	background: $color_bon_jour_approx;
+	//Instead of the line below you could use @include transition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
+	transition-property: color;
+	//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+	transition-duration: 0.3s;
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: $color_bright_gray_approx;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: scaleX(0);
+		//Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+		transform-origin: 50%;
+		//Instead of the line below you could use @include transition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
+		transition-property: transform;
+		//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+		transition-duration: 0.3s;
+		//Instead of the line below you could use @include transition-timing-function($function-1, $function-2, $function-3, $function-4, $function-5, $function-6, $function-7, $function-8, $function-9, $function-10)
+		transition-timing-function: ease-out;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 5px;
+	}
+	&:hover {
+		color: $white;
+		&:before {
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: scaleX(1);
+		}
+	}
+	&:focus {
+		color: $white;
+		&:before {
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: scaleX(1);
+		}
+	}
+	&:active {
+		color: $white;
+		&:before {
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: scaleX(1);
+		}
+	}
+}
+.banner_desc {
+	display: block;
+	z-index: 2;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: none;
+	margin: 0;
+	max-width: none;
+	position: absolute;
+	top: 90.5%;
+	right: 0;
+	width: 100%;
+	padding: 10px 15px 5px;
+	background: $color_black_45_approx;
+}
+.grid_1 {
+	padding-right: 0!important;
+}
+span {
+	&.m_1 {
+		font-size: 14px;
+		color: $color_persian_red_approx;
+		img {
+			vertical-align: text-bottom;
+		}
+	}
+	&.m_4 {
+		font-weight: 500;
+	}
+}
+.content {
+	background: $color_gallery_approx;
+	padding: 2em;
+}
+.search {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid $color_pumice_approx;
+	background: none;
+	position: relative;
+	margin-bottom: 2em;
+	float: right;
+	form {
+		input[type="text"] {
+			padding: 3px 0;
+			font-weight: 500;
+			font-size: 1em;
+			color: $color_shady_lady_approx;
+			border: none;
+			outline: none;
+			width: 76%;
+			background: none;
+			font-style: italic;
+		}
+		input[type="submit"] {
+			background: $url_2 no-repeat 3px -2px;
+			width: 20px;
+			height: 20px;
+			border: none;
+			cursor: pointer;
+			outline: none;
+			position: absolute;
+			top: 23%;
+			right: 8px;
+		}
+	}
+}
+.grid_2 {
+	img {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 5px;
+	}
+	&:hover {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: 0.5s all;
+		opacity: 0.8;
+		i.icon4 {
+		}
+	}
+}
+.caption1 {
+	position: relative;
+}
+.row_2 {
+	margin-top: 2em;
+	&:hover {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: 0.5s all;
+		opacity: 0.8;
+	}
+}
+.grid_3 {
+	padding: 0;
+}
+.grid_4 {
+	padding-left: 0;
+}
+.grid_5 {
+}
+.col_1 {
+	margin-top: 2em;
+}
+.col_2 {
+	background: $white;
+}
+.row_5 {
+	margin-top: 2em;
+}
+.col_3 {
+	margin-top: 2em;
+}
+#footer {
+	float: left;
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 5em;
+}
+#footer-3d {
+	background-color: $color_gallery_approx;
+	float: left;
+	overflow: hidden;
+	width: 100%;
+	height: 60px;
+	.first-widget-bend {
+		float: left;
+		overflow: hidden;
+		width: 30%;
+		height: 60px;
+		margin-left: 30px;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: skewX(-45deg);
+	}
+}
+.first-widget-bend {
+	background-color: $color_alizarin_crimson_approx;
+}
+#footer-widgets {
+	background-color: $color_charade_approx;
+	float: left;
+	overflow: hidden;
+	padding: 50px 0 10px;
+	width: 100%;
+	&.gp-footer-larger-first-col {
+		padding: 0;
+	}
+}
+.gp-container {
+	position: relative;
+	margin: 0 auto;
+	z-index: 1;
+}
+.col_1_of_3 {
+	display: block;
+	float: left;
+	margin: 4% 0 1% 1.6%;
+	&:first-child {
+		margin-left: 0;
+	}
+}
+.span_1_of_3 {
+	width: 19.8%;
+	h3 {
+		margin-bottom: 15px;
+		font-size: 1.5em;
+		line-height: 1.2;
+		margin-top: 0;
+		letter-spacing: -1px;
+		color: $white;
+	}
+}
+.footer_box {
+}
+.movie-test-dark {
+	background-color: $white;
+}
+.movie-test {
+	width: 50%;
+	float: left;
+	margin-bottom: 8px;
+	.movie__images {
+		width: 50%;
+		border: none;
+		position: relative;
+	}
+	.movie-beta__link {
+		&:after {
+			content: '';
+			background-color: rgba(255, 255, 255, 0);
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: 0.3s;
+			z-index: 19;
+		}
+		&:hover:after {
+			background-color: $white_40;
+		}
+	}
+	.movie__info {
+		overflow: hidden;
+		padding: 17px;
+		position: relative;
+		margin: 0;
+		background: $white;
+	}
+}
+.movie_img {
+	margin-bottom: 2em;
+}
+#flexiselDemo1 {
+	display: none;
+}
+#flexiselDemo3 {
+	display: none;
+}
+.nbs-flexisel-container {
+	position: relative;
+	max-width: 100%;
+}
+.nbs-flexisel-ul {
+	position: relative;
+	width: 9999px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+.nbs-flexisel-inner {
+	overflow: hidden;
+	margin: 0 auto;
+}
+.nbs-flexisel-item {
+	float: left;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	position: relative;
+	line-height: 0;
+	a {
+		color: $black;
+		font-size: 0.8125em;
+		text-transform: uppercase;
+		&:hover {
+			color: $color_fuscous_gray_approx;
+		}
+	}
+	p {
+		color: $black;
+		font-size: 0.85em;
+		padding-top: 25px;
+	}
+	> img {
+		position: relative;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		max-width: 350px;
+		max-height: 500px;
+		cursor: pointer;
+		positon: relative;
+	}
+}
+.grid-flex {
+	margin: 10px 0 20px;
+	font-family: $font_3, $font_1;
+}
+.nbs-flexisel-nav-left {
+	@extend %extend_6;
+	left: 0;
+	background: $url_3 no-repeat -15px -113px;
+}
+.nbs-flexisel-nav-right {
+	@extend %extend_6;
+	right: 0;
+	background: $url_3 no-repeat -76px -113px;
+}
+.down_btn {
+	margin-top: 3em;
+}
+.btn1 {
+	padding: 12px 20px;
+	outline: none;
+	font-size: 1.2em;
+	color: $white;
+	text-decoration: none;
+	text-transform: uppercase;
+	background: $color_alizarin_crimson_approx;
+	span {
+		width: 20px;
+		height: 20px;
+		background: $url_0 -85px -49px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 2%;
+		text-decoration: none;
+	}
+}
+.images_3_of_2 {
+	width: 37.2%;
+	float: left;
+	margin-right: 2.6%;
+}
+.span_3_of_2 {
+	width: 59.3333%;
+}
+.desc1 {
+	display: block;
+	float: left;
+}
+.movie_image {
+	position: relative;
+	border: 2px solid $color_alizarin_crimson_approx;
+}
+.movie_rating {
+	width: 47px;
+	height: 47px;
+	padding-top: 10px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 24px;
+	background-color: $color_alizarin_crimson_approx;
+	border: solid 3px $white;
+	font: 16px $font_3, $font_1;
+	color: $white;
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+	top: 6px;
+	left: 6px;
+}
+.movie_rate {
+	position: relative;
+	padding: 20px 17px 19px;
+	border: 2px solid $color_alizarin_crimson_approx;
+	border-top: none;
+	color: $color_tundora_approx;
+}
+.rating_desc {
+	float: left;
+	p {
+		color: $black;
+		font-size: 1.2em;
+	}
+}
+.sky-form {
+	.rating {
+		margin-bottom: 4px;
+		font-size: 15px;
+		line-height: 27px;
+		color: $color_cape_cod_approx;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		input {
+			position: absolute;
+			left: -9999px;
+			&:checked ~ label {
+				color: $color_curious_blue_approx;
+				background: $url_4 0 -16px;
+			}
+		}
+		label {
+			display: block;
+			float: right;
+			height: -4px;
+			cursor: pointer;
+		}
+	}
+	[class^="icon-"] {
+		display: block;
+		width: 20px;
+		height: 20px;
+		background: $url_4 0 1px;
+		float: left;
+		font-family: $font_2;
+		font-style: normal;
+		font-weight: normal;
+	}
+	.radio input {
+		+ i:after {
+			background-color: $color_curious_blue_approx;
+		}
+		&:checked + i {
+			border-color: $color_curious_blue_approx;
+		}
+	}
+	.checkbox input {
+		+ i:after {
+			color: $color_curious_blue_approx;
+		}
+		&:checked + i {
+			border-color: $color_curious_blue_approx;
+		}
+	}
+	.toggle input:checked + i {
+		border-color: $color_curious_blue_approx;
+	}
+}
+.title {
+	color: $black;
+	font-size: 1.1em;
+	font-weight: 600;
+	margin: 0 0 10px 0;
+	a {
+		color: $black;
+		&:hover {
+			color: $red;
+			text-decoration: none;
+		}
+	}
+}
+.data {
+	float: left;
+	width: 93.5%;
+	p {
+		@extend %extend_7;
+	}
+}
+li {
+	&.middle {
+		padding: 0 0 0 70px;
+		margin-bottom: 30px;
+	}
+	&.last-comment {
+		padding: 0 0 0 140px;
+		margin-bottom: 30px;
+	}
+}
+.data-middle {
+	@extend %extend_7;
+	float: left;
+	width: 92.5%;
+}
+.data-last {
+	float: left;
+	width: 92.5%;
+	p {
+		@extend %extend_7;
+	}
+}
+.preview {
+	float: left;
+	width: 5.5%;
+	margin-right: 1%;
+}
+.text {
+	input[type="text"] {
+		@extend %extend_8;
+	}
+	textarea {
+		@extend %extend_8;
+	}
+}
+.login-left {
+	h3 {
+		@extend %extend_9;
+	}
+	p {
+		@extend %extend_10;
+	}
+}
+.login-right {
+	h3 {
+		@extend %extend_9;
+	}
+	p {
+		@extend %extend_10;
+	}
+	input[type="submit"] {
+		background: $color_alizarin_crimson_approx;
+		color: $white;
+		font-size: 1em;
+		padding: 7px 10px;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: 0.5s all;
+		display: inline-block;
+		text-transform: uppercase;
+		border: none;
+		outline: none;
+		&:hover {
+			@extend %extend_11;
+			background: $black;
+		}
+	}
+	form {
+		padding: 1em 0;
+		div {
+			padding: 0 0 1.5em 0;
+		}
+	}
+	span {
+		color: $color_mountain_mist_approx;
+		font-size: 0.95em;
+		display: block;
+	}
+	input[type="text"] {
+		border: 1px solid $color_mercury_approx;
+		outline-color: $color_alizarin_crimson_approx;
+		width: 96%;
+		font-size: 0.8125em;
+		padding: 10px;
+	}
+}
+.acount-btn {
+	background: $color_alizarin_crimson_approx;
+	color: $white;
+	font-size: 1em;
+	padding: 7px 10px;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	&:hover {
+		@extend %extend_11;
+	}
+}
+.register-top-grid {
+	h3 {
+		@extend %extend_12;
+	}
+	div {
+		@extend %extend_13;
+	}
+	span {
+		@extend %extend_14;
+	}
+	input[type="text"] {
+		@extend %extend_15;
+	}
+}
+.register-bottom-grid {
+	h3 {
+		@extend %extend_12;
+	}
+	div {
+		@extend %extend_13;
+	}
+	span {
+		@extend %extend_14;
+	}
+	input[type="text"] {
+		@extend %extend_15;
+	}
+}
+.checkbox {
+	margin-bottom: 4px;
+	padding-left: 27px;
+	font-size: 1.1em;
+	line-height: 27px;
+	cursor: pointer;
+	position: relative;
+	color: $color_mountain_mist_approx;
+	font-weight: 500;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	i {
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		display: block;
+		width: 20px;
+		height: 20px;
+		outline: none;
+		border: 2px solid $color_winter_hazel_approx;
+	}
+	input {
+		position: absolute;
+		left: -9999px;
+		+ i:after {
+			content: '';
+			background: $url_5 no-repeat 1px 2px;
+			top: -1px;
+			left: -1px;
+			width: 15px;
+			height: 15px;
+			font: normal 12px/16px $font_2;
+			text-align: center;
+			position: absolute;
+			opacity: 0;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: opacity 0.1s;
+		}
+		&:checked + i:after {
+			opacity: 1;
+		}
+	}
+}
+.news-letter {
+	color: $color_fuscous_gray_approx;
+	font-weight: 600;
+	font-size: 0.85em;
+	margin-bottom: 1em;
+	display: block;
+	text-transform: uppercase;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: 0.5s all;
+	clear: both;
+	&:hover {
+		color: $color_robins_egg_blue_approx;
+	}
+}
+.register-but {
+	form input[type="submit"] {
+		background: $color_alizarin_crimson_approx;
+		color: $white;
+		font-size: 1em;
+		padding: 7px 20px;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: 0.5s all;
+		display: inline-block;
+		text-transform: uppercase;
+		border: none;
+		outline: none;
+	}
+	input[type="submit"]:hover {
+		background: $color_bright_gray_approx;
+	}
+}
+@media only screen and(max-width:1024px) {
+	ul {
+		&.header_right_box {
+			margin: 0 0 0 17%;
+		}
+		&.list_4 {
+			padding: 0.5em;
+			li {
+				font-size: 0.95em;
+			}
+		}
+		&.list_3 {
+			top: -150px;
+		}
+		&.list_5 {
+			top: -120px;
+			left: 5px;
+		}
+		&.list_6 li {
+			font-size: 0.95em;
+		}
+	}
+	.banner_desc {
+		top: 88.5%;
+	}
+	i {
+		&.icon4 {
+			top: -150px;
+		}
+		&.icon6 {
+			top: -120px;
+		}
+	}
+	p.m_3 {
+		top: -43px;
+		font-size: 1em;
+	}
+	.video iframe {
+		min-height: 180px;
+	}
+	.movie-test .movie__info {
+		padding: 6px;
+	}
+}
+@media only screen and(max-width:920px) {
+	ul {
+		&.header_right_box {
+			margin: 0;
+			li {
+				margin: 0 1%;
+			}
+		}
+		&.list_1 li {
+			font-size: 1em;
+		}
+	}
+	ul.list_3,ul.list_5 {
+			top: -215px;
+			width: 30%;
+			left: 210px;
+	}
+	.banner_desc {
+		top: 78.5%;
+	}
+	.grid_2 {
+		text-align: center;
+		margin-bottom: 2em;
+		img {
+			display: inline-block;
+		}
+	}
+	.col_2 {
+		text-align: center;
+		img {
+			display: inline-block;
+		}
+	}
+	.row_2 {
+		text-align: center;
+		margin-bottom: 2em;
+		img {
+			display: inline-block;
+		}
+	}
+	.m_6 {
+		text-align: center;
+		img {
+			display: inline-block;
+		}
+	}
+	.m_7 {
+		text-align: center;
+		margin-top: 2em;
+		img {
+			display: inline-block;
+		}
+	}
+	.login-right {
+		margin-top: 3em;
+		h3 {
+			padding-bottom: 0;
+		}
+	}
+	.nav li {
+		margin: 0 3% 0 0;
+	}
+	.col-sm-3.header_right {
+		padding-left: 0;
+	}
+	i.icon4 {
+		top: -215px;
+		right: 220px;
+	}
+	.nbs-flexisel-item > img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+	.col-md-9.movie_box {
+		margin-bottom: 2em;
+	}
+	.login-left h3 {
+		padding-bottom: 0;
+	}
+	p.text {
+		display: none;
+	}
+	.gp-footer-larger-first-col .footer-1 {
+		padding: 20px;
+	}
+}
+@media only screen and(max-width:640px) {
+	.logo {
+		margin: 0 0 10px;
+		text-align: center;
+	}
+	.header_top {
+		padding: 1em 1em 0.8em;
+	}
+	.banner_desc {
+		top: 73.5%;
+	}
+	.button {
+		top: 40%;
+	}
+	.movie_rate {
+		padding: 10px 5px 8px;
+	}
+	ul.header_right_box {
+		text-align: center;
+		li {
+			display: inline-block;
+			float: none;
+		}
+	}
+	.nav li {
+		margin: 0 1% 0 0;
+	}
+}
+@media only screen and(max-width:600px) {
+	.banner_desc {
+		top: 54.5%;
+		padding: 5px;
+	}
+	.span_1_of_3 {
+		width: 100%;
+		float: none;
+	}
+	.footer_box {
+		padding: 2em;
+		text-align: center;
+	}
+	.movie-test {
+		width: 100%;
+		float: none;
+	}
+	.content {
+		padding: 1em;
+	}
+	.images_3_of_2 {
+		width: 100%;
+		float: none;
+		margin-right: 0;
+	}
+	.span_3_of_2 {
+		width: 100%;
+		margin-top: 2em;
+	}
+	.desc1 {
+		float: none;
+	}
+	.text {
+		input[type="text"] {
+			width: 100%;
+		}
+		textarea {
+			width: 100%;
+		}
+	}
+	.preview {
+		width: 13.5%;
+		margin-right: 2%;
+	}
+	.data {
+		width: 83.5%;
+	}
+	li {
+		&.middle {
+			padding: 0 0 0 30px;
+			margin-bottom: 0;
+		}
+		&.last-comment {
+			padding: 0 0 0 60px;
+			margin-bottom: 0;
+		}
+	}
+	.data-middle {
+		width: 83.5%;
+	}
+	.data-last {
+		width: 82.5%;
+	}
+	.button a {
+		padding: 6px 10px;
+		font-weight: 600;
+		font-size: 0.85em;
+	}
+	ul.list_1 li {
+		font-size: 0.85em;
+	}
+	.gp-footer-larger-first-col .footer-1 {
+		width: 100%;
+		padding: 10px;
+		float: none;
+	}
+	h2.m_3 {
+		font-size: 22px;
+	}
+	h1.recent {
+		font-size: 22px;
+	}
+	.to input[type="text"] {
+		width: 45%;
+	}
+	.form-submit1 input[type="submit"] {
+		font-size: 1em;
+		padding: 7px 10px;
+	}
+}
+@media only screen and(max-width:320px) {
+	.banner_desc {
+		display: none;
+	}
+	.search {
+		float: right;
+		width: 40%;
+	}
+	ul.list_3, ul.list_5{
+		top: -200px;
+		width: 30%;
+		left: 10px;
+	}
+	.grid_7 {
+		padding: 0;
+	}
+	.grid_4 {
+		padding: 0;
+	}
+	.content_right {
+		padding: 0;
+	}
+	.content_right-box {
+		padding: 0;
+	}
+	.grid_5 {
+		padding: 0;
+	}
+	.m_6 {
+		padding: 0;
+	}
+	.movie_box {
+		padding: 0;
+	}
+	.login-left {
+		padding: 0;
+	}
+	.login-right {
+		padding: 0;
+	}
+	h1.m_2 {
+		font-size: 1.1em;
+		margin-top: 6px;
+	}
+	i.icon4 {
+		top: -200px;
+		right: 8px;
+	}
+	.video iframe {
+		padding: 0;
+		margin-top: 0;
+	}
+	h2.m_3 {
+		font-size: 18px;
+		padding: 0;
+	}
+	.single h1 {
+		font-size: 20px;
+		margin: 2em 0 0;
+	}
+	.to input[type="text"] {
+		width: 48%;
+	}
+}
+.simptip-position-right.simptip-movable {
+	&:before {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all .1s linear;
+	}
+	&:after {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all .1s linear;
+	}
+}
+.simptip-position-left.simptip-movable {
+	&:before {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all .1s linear;
+	}
+	&:after {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all .1s linear;
+	}
+}
+.callbacks_here a:after {
+	border: 2px solid $color_salmon_approx;
+}
+.m_5:hover {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: 0.5s all;
+	opacity: 0.8;
+}
+.m_6:hover {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: 0.5s all;
+	opacity: 0.8;
+}
+.m_7:hover {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: 0.5s all;
+	opacity: 0.8;
+}
+.m_8:hover {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: 0.5s all;
+	opacity: 0.8;
+}
+.col-md-6.grid_7 {
+	padding-right: 0;
+}
+.col-md-2.grid_6 {
+	padding: 0;
+}
+.video iframe {
+	min-height: 225px;
+	padding: 0 15px;
+	margin-top: 2em;
+}
+.gp-footer-larger-first-col .footer-1 {
+	line-height: 23px;
+	font-weight: 400;
+	font-style: normal;
+	color: $white;
+	font-size: 15px;
+	opacity: 1;
+	visibility: visible;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: opacity 0.24s ease-in-out;
+	background-color: $color_alizarin_crimson_approx;
+	width: 30%;
+	margin-right: 7%;
+	padding: 30px;
+	float: left;
+}
+.copy p {
+	color: $white;
+	font-size: 13px;
+	margin-top: 1em;
+	a {
+		color: $color_alizarin_crimson_approx;
+	}
+}
+.movie-test-left .movie__images {
+	float: left;
+}
+.movie-test-right .movie__images {
+	float: right;
+}
+.movie .movie__rate .score {
+	display: inline-block;
+	padding-left: 15px;
+}
+.list li {
+	padding-bottom: 30px;
+}
+.single h1 {
+	color: $black;
+	font-size: 25px;
+	margin: 3em 0 0;
+}
+.to input[type="text"] {
+	padding: 10px;
+	width: 30%;
+	font-size: 1.1em;
+	margin: 10px 0;
+	border: none;
+	color: $color_mountain_mist_approx;
+	background: $white;
+	float: left;
+	outline: none;
+}
+.form-submit1 input[type="submit"] {
+	color: $white;
+	font-size: 1.1em;
+	font-weight: normal;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	background: $color_alizarin_crimson_approx;
+	display: inline-block;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.3s ease-out;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	&:hover {
+		background: $color_bright_gray_approx;
+	}
+}
+div.register-bottom-grid {
+	margin-top: 3em;
+}

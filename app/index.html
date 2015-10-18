@@ -10,9 +10,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
   </head>
-  <body>
+  <body ng-app="movapp">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -23,35 +27,113 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-<!--    <div class="container" data-ng-view></div> -->
-    <section data-ng-view></section>
-
-
-    <script src="//apis.google.com/js/client:plusone.js"></script>
-    <script src="//apis.google.com/js/api.js"></script>
-
+    <div class="container">
+        <div class="container_wrap">
+            <data-ng-include src="'views/header.html'"></data-ng-include>
+            <div class="content">
+                <div class="box_1" data-ng-controller="movBaseController as baseCtrl">
+                    <mov-ui-tab data-list="baseCtrl.tabs" data-is-show="{{currentState(['home','nowplaying','upcoming'])}}"></mov-ui-tab>
+                    <div class="clearfix"> </div>
+                </div>
+                <section ui-view></section>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <footer id="footer">
+            <div id="footer-3d">
+                <div class="gp-container">
+                    <span class="first-widget-bend"></span>
+                </div>
+            </div>
+            <div id="footer-widgets" class="gp-footer-larger-first-col">
+                <div class="gp-container">
+                    <div class="footer-widget footer-1">
+                        <div class="wpb_wrapper">
+                            <img src="images/f_logo.png" alt=""/>
+                        </div>
+                        <br>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page.</p>
+                        <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
+                    </div>
+                    <div class="footer_box">
+                        <div class="col_1_of_3 span_1_of_3">
+                            <h3>Categories</h3>
+                            <ul class="first">
+                                <li><a href="#">Dance</a></li>
+                                <li><a href="#">History</a></li>
+                                <li><a href="#">Specials</a></li>
+                            </ul>
+                        </div>
+                        <div class="col_1_of_3 span_1_of_3">
+                            <h3>Information</h3>
+                            <ul class="first">
+                                <li><a href="#">New products</a></li>
+                                <li><a href="#">top sellers</a></li>
+                                <li><a href="#">Specials</a></li>
+                            </ul>
+                        </div>
+                        <div class="col_1_of_3 span_1_of_3">
+                            <h3>Follow Us</h3>
+                            <ul class="first">
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Youtube</a></li>
+                            </ul>
+                            <div class="copy">
+                                <p>&copy; 2015 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </footer>
+        <div data-ng-controller="movBaseController">
+            <span us-spinner="{radius:15, width:4, length: 8, position:'fixed'}" spinner-key="spinner-1"></span>
+        </div>
+    </div>
     <script src="components/jquery/jquery.js"></script>
-    <script src="components/angular/angular.js"></script>
+    <script src="components/angular/angular.min.js"></script>
+    <script src="components/angular/angular-cookies.min.js"></script>
+    <script src="components/angular/ngStorage.js"></script>
+    <script src="components/angular/angular-ui-router.min.js"></script>
+    <script src="components/angular/angular-endless-scroll.js"></script>
+    <script src="components/spin.min.js"></script>
+    <script src="components/angular/angular-spinner.js"></script>
+    <script src="components/angular/dirPagination.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="components/responsiveslides.min.js"></script>
+    <script src="components/angular/tabs.js"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/storage.js"></script>
-    <script src="scripts/directives/on-blur.js"></script>
-    <script src="scripts/directives/collaborative.js"></script>
-    <script src="scripts/directives/focus.js"></script>
-
-    <script src="scripts/controllers/install.js"></script>
-    <script src="scripts/controllers/create.js"></script>
-    <script src="scripts/controllers/todos.js"></script>
+    <script src="scripts/services/api.js"></script>
+    <script src="scripts/services/account/account.service.js"></script>
+    <script src="scripts/services/movies/movies.service.js"></script>
+    <script src="scripts/services/common.service.js"></script>
+    <script src="scripts/controllers/base.controller.js"></script>
+    <script src="scripts/directives/mov.pagination.js"></script>
+    <script src="scripts/directives/mov.tab.directive.js"></script>
+    <script src="scripts/controllers/movies/featured.movies.controller.js"></script>
+    <script src="scripts/controllers/movies/details.movies.controller.js"></script>
+    <script src="scripts/controllers/movies/latest.movies.controller.js"></script>
+    <script src="scripts/controllers/movies/upcoming.movies.controller.js"></script>
+    <script src="scripts/directives/movies/mov.similar.directive.js"></script>
+    <script src="scripts/directives/movies/mov.credits.directive.js"></script>
+    <script src="scripts/directives/mov.directive.rating.js"></script>
     <!-- endbuild -->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-     -->
   </body>
 </html>

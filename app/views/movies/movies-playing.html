@@ -1,0 +1,37 @@
+<div class="box_2">
+    <!--<h2 class="m_3">Now in Theaters</h2>-->
+    <div class="movie_top" id="in-theaters">
+        <div class="col-md-9 movie_box">
+            <!-- Movie variant with time -->
+            <div class="movie movie-test movie-test-dark movie-test-left"
+                 dir-paginate="movie in LatestMoviesCtrl.movies | itemsPerPage: LatestMoviesCtrl.pagination.per_page" total-items="LatestMoviesCtrl.pagination.total_results" current-page="LatestMoviesCtrl.pagination.current_page">
+                <div class="movie__images">
+                    <a href="#moviedetails/{{movie.id}}" class="movie-beta__link">
+                        <img data-ng-if="movie.backdrop_path" src="{{imageInfo.base_url}}{{imageInfo.still_sizes[2]}}{{movie.backdrop_path}}" class="img-responsive" alt="{{movie.title}}"/>
+                        <img data-ng-if="!movie.backdrop_path" src="images/no-image.jpg" class="img-responsive" alt="{{movie.original_title}}"/>
+                    </a>
+                </div>
+                <div class="movie__info">
+                    <a href="#moviedetails/{{movie.id }}" class="movie__title">{{movie.original_title}}({{movie.release_date | date: 'yyyy'}})</a>
+                    <ul class="list_6">
+                        <li>Language: {{movie.original_language}}</li>
+                        <li><i class="icon1"> </i><p>{{movie.popularity}}</p></li>
+                        <!--<li><i class="icon3"> </i><p>{{movie.vote_count}}</p></li>-->
+                        <li>Rating<p><mov-rating ng-model="movie.vote_average" max="10" readonly="true"></mov-rating></p></li>
+                        <div class="clearfix"> </div>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!-- Movie variant with time -->
+        </div>
+        <div class="col-md-3">
+            <mov-similar-movies data-type="toprated" no-of-records="3" image-url="{{imageInfo.base_url}}{{imageInfo.backdrop_sizes[0]}}"></mov-similar-movies>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="col-xs-9 text-center">
+        <dir-pagination-controls on-page-change="LatestMoviesCtrl.pageChanged(newPageNumber)"></dir-pagination-controls>
+    </div>
+    <div class="clearfix"> </div>
+</div>

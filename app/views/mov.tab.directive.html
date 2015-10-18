@@ -1,0 +1,5 @@
+<ul class="resp-tabs-list tab-main" data-ng-show="isShow=='true'">
+    <li class="resp-tab-item" ui-sref-active="resp-tab-active" aria-controls="tab_item-{{$index}}" role="tab" data-ng-repeat="tab in list">
+        <a class="m_2" ui-sref="{{tab.state}}">{{ tab.title }}</a>
+    </li>
+</ul>

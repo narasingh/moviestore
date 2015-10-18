@@ -1,0 +1,27 @@
+<div class="box_2 upcoming">
+    <div class="col-md-12 grid_3">
+        <div class="row_1">
+            <div class="col-md-3 grid_4" endless-scroll="movies in upcomingMovies">
+             <a href="#/moviedetails/{{ movies.id }}">
+                <div class="grid_2">
+                    <span data-ng-if="movies.backdrop_path">
+                        <img src="{{imageInfo.base_url}}{{imageInfo.backdrop_sizes[0]}}{{movies.backdrop_path}}" class="img-responsive" alt="{{movies.original_title}}"/>
+                    </span>
+                    <span data-ng-if="!movies.backdrop_path">
+                         <img src="images/no-image.jpg" class="img-responsive" alt="{{movies.original_title}}" height="144"/>
+                    </span>
+                    <div class="caption1">
+                        <ul class="list_3">
+                            <li><i class="icon5"> </i><p>{{ movies.popularity }}</p></li>
+                        </ul>
+                        <i class="icon4"> </i>
+                        <p class="m_3">{{ movies.original_title }}</p>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="clearfix"></div>
+        <mov-end-less-pagination></mov-end-less-pagination>
+    </div>
+    <div class="clearfix"> </div>
+</div>

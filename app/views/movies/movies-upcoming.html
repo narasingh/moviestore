@@ -1,0 +1,29 @@
+<div class="box_2 upcoming">
+    <div class="col-md-12 grid_3">
+        <div class="row_1">
+            <div class="col-md-3 grid_4" dir-paginate="movie in movUpcomingCtrl.movies | itemsPerPage: movUpcomingCtrl.pagination.per_page" total-items="movUpcomingCtrl.pagination.total_results" current-page="movUpcomingCtrl.pagination.current_page">
+                <a href="#/moviedetails/{{ movie.id }}">
+                    <div class="grid_2">
+                    <span data-ng-if="movie.backdrop_path">
+                        <img src="{{imageInfo.base_url}}{{imageInfo.backdrop_sizes[0]}}{{movie.backdrop_path}}" class="img-responsive" alt="{{movie.original_title}}"/>
+                    </span>
+                    <span data-ng-if="!movie.backdrop_path">
+                         <img src="images/no-image.jpg" class="img-responsive" alt="{{movie.original_title}}" height="144"/>
+                    </span>
+                        <div class="caption1">
+                            <ul class="list_3">
+                                <li><i class="icon5"> </i><p>{{ movie.popularity }}</p></li>
+                            </ul>
+                            <i class="icon4"> </i>
+                            <p class="m_3">{{ movie.original_title }}</p>
+                        </div>
+                    </div>
+                </a></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-xs-9 text-center">
+            <dir-pagination-controls on-page-change="movUpcomingCtrl.pageChanged(newPageNumber)"></dir-pagination-controls>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>
