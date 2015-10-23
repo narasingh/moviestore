@@ -4,7 +4,8 @@
      * Initialize our application routes
      */
     angular.module('movapp',
-        ['ngStorage', 'angularSpinner', 'mov.api', 'mov.common', 'mov.account', 'mov.movies','mov.featured', 'dc.endlessScroll', 'ui.router','angularUtils.directives.dirPagination'])
+        ['ngStorage', 'ngAnimate', 'angularSpinner', 'mov.api', 'mov.common', 'mov.account', 'mov.movies','mov.featured', 'mov.search', 'mov.list',
+            'dc.endlessScroll', 'ui.router','angularUtils.directives.dirPagination'])
         .config(['$stateProvider' , '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
             $urlRouterProvider.otherwise('/home');
@@ -28,10 +29,15 @@
                     templateUrl : 'views/movies/movies-upcoming.html',
                     controller : 'MovUpcomingController as movUpcomingCtrl'
                 })
-                .state('movielist', {
-                    url : '/movies',
+                .state('latest', {
+                    url : '/latest.movies',
                     templateUrl : 'views/movies/movies-list.html',
-                    controller : 'MovUpcomingController as movUpcomingCtrl'
+                    controller : 'MovListController as movListCtrl'
+                })
+                .state('login', {
+                    url : '/user.login',
+                    templateUrl : 'views/authenticate/user-login.html',
+                    controller : 'UserLoginController as userCtrl'
                 });
         }])
         .constant('CONFIG', {
@@ -52,4 +58,7 @@
             });
 
         }]);
+
+        //angular.module('mov.common', ['mov.search', 'mov.list']);
+
 }());

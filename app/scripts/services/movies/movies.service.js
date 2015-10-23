@@ -71,6 +71,10 @@
             data = data || {};
             return $http.get(baseUrl + 'movie/now_playing', { params : data });
         };
+        self.geLatestMovies = function(data){
+            data = data || {};
+            return $http.get(baseUrl + 'movie/latest', { params : data });
+        };
         self.getPopularMovies = function(data){
             data = data || {};
             return $http.get(baseUrl + 'movie/popular', { params : data });

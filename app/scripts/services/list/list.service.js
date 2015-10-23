@@ -4,31 +4,34 @@
 (function(){
     'use strict';
 
-    function MovList(movCommonApi){
-        var self = angular.extend(this, movCommonApi);
+    angular.module('mov.list',[]).factory('MovList', ['movCommonApi', 'MovSearch', function(movCommonApi, MovSearch){
+
+
+        function MovList(){
+            var self = angular.extend(this, movCommonApi, MovSearch);
             self.sessionId = self.getSessionId();
-    }
-
-    MovList.prototype = {
-
-        getList : function(params){
-
-        },
-        getListById : function(params){
-
-        },
-        addListItem : function(params){
-
-        },
-        removeListItem : function(params){
-
-        },
-        clearListItems : function(params){
-
         }
-    };
 
+        MovList.prototype = {
 
-    List.$inject = ['movCommonApi'];
-    angular.module('mov.list').factory('MovList', MovList);
+            getList : function(params){
+                return this.searchList(params);
+            },
+            getListById : function(params){
+
+            },
+            addListItem : function(params){
+
+            },
+            removeListItem : function(params){
+
+            },
+            clearListItems : function(params){
+
+            }
+        };
+
+        return MovList;
+
+    }]);
 }());

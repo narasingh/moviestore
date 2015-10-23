@@ -1,7 +1,7 @@
 <div class="box_2 upcoming">
     <div class="col-md-12 grid_3">
         <div class="row_1">
-            <div class="col-md-3 grid_4" dir-paginate="movie in movUpcomingCtrl.movies | itemsPerPage: movUpcomingCtrl.pagination.per_page" total-items="movUpcomingCtrl.pagination.total_results" current-page="movUpcomingCtrl.pagination.current_page">
+            <div class="col-md-3 grid_4 animate-repeat2" dir-paginate="movie in movUpcomingCtrl.movies | itemsPerPage: movUpcomingCtrl.pagination.per_page" total-items="movUpcomingCtrl.pagination.total_results" current-page="movUpcomingCtrl.pagination.current_page">
                 <a href="#/moviedetails/{{ movie.id }}">
                     <div class="grid_2">
                     <span data-ng-if="movie.backdrop_path">

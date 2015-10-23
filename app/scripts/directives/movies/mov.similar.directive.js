@@ -16,7 +16,10 @@
                         scope.similarMovies = response.data.results;
                      };
                  var getTopRatedMovies = function(response){
-                     scope.similarMovies = response.data.results;
+                     //random movies
+                     scope.similarMovies = response.data.hasOwnProperty('results') && response.data.results.sort(function(a, b){
+                             return Math.random() - 0.5;
+                     });
                  };
 
                  if(scope.type ==='toprated'){
