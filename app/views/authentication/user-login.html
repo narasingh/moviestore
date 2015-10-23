@@ -8,18 +8,19 @@
         <div class="col-md-6 login-right">
             <h3>Registered Customers</h3>
             <p>If you have an account with us, please log in.</p>
-            <form>
+            <form name="frmLogin" id="frmLogin">
                 <div>
-                    <span>Email Address<label>*</label></span>
-                    <input type="text">
+                    <label for="username">User Name</label>
+                    <input type="text" name="username" id="username" data-ng-model="data.username" class="form-control" required >
                 </div>
                 <div>
-                    <span>Password<label>*</label></span>
-                    <input type="text">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" data-ng-model="data.password" class="form-control" ng-minlength="6" ng-maxlength="20"  required >
                 </div>
                 <a class="forgot" href="#">Forgot Your Password?</a>
-                <input type="submit" value="Login">
+                <mov-button btn-id="login" btn-name="login" btn-action="userCtrl.userLogin(data)" btn-value="Login"></mov-button>
             </form>
+            <div class="message"></div>
         </div>
         <div class="clearfix"> </div>
     </div>

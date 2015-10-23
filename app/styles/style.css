@@ -1350,7 +1350,7 @@ text-transform: uppercase;
 	display: block;
 
 }
-.login-right input[type="text"] {
+.login-right input[type="text"], .login-right input[type="password"] {
 	border: 1px solid #E4E4E4;
 	outline-color:#d8232a;
 	width: 96%;
@@ -1831,3 +1831,13 @@ h2.m_3 {
     -webkit-transform: scale(1);
     opacity: 1;
 }
+/*messages*/
+#mov-message-container{
+    -webkit-box-shadow: 2px 2px 2px #aaa;
+    -moz-box-shadow: 2px 2px 2px #aaa;
+}
+.message #mov-message-container{
+    position: relative;
+    width: 100%;
+}
+/*messages*/

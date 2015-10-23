@@ -45,7 +45,7 @@
                         updateStars(true);
                     }
                 };
-                scope.$watch('ratingValue', function(newval, oldval){
+                scope.$watch('ratingValue', function(newval){
 
                     if(newval || newval===0){
                         updateStars();

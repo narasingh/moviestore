@@ -56,6 +56,8 @@
             },
             responseError : function(rejection){
                 $rootScope.$broadcast('us-spinner:stop', 'spinner-1');
+                $rootScope.$broadcast('mov-error.handler', rejection);
+
                 return $q.reject(rejection);
             }
         };

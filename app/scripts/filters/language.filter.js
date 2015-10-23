@@ -12,7 +12,7 @@
             var langObj = movCommonApi.getValueByKey(languages, input);
 
             return langObj.name;
-        }
+        };
 
     }
     angular.$inject= ['movCommonApi'];
