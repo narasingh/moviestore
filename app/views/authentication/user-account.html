@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-12">
+        <mov-ui-tab data-list="listCtrl.tabs" data-is-show="{{currentState(['account','watchlist','createlist'])}}"></mov-ui-tab>
+    </div>
+</div>
+<div class="box_2 upcoming">
+    <div class="col-md-12 grid_3">
+        <div class="row_1">
+            <ng-include src="listCtrl.page"></ng-include>
+        </div>
+        <div class="clearfix"></div>
+        <!--<mov-end-less-pagination></mov-end-less-pagination>-->
+    </div>
+    <div class="clearfix"> </div>
+</div>

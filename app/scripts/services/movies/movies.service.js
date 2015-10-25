@@ -61,7 +61,7 @@
         };
         self.setMovieRating = function(params){
             var params = params || {};
-            return $http.post(baseUrl + 'movie/{id}/rating', { data : params });
+            return $http.post(baseUrl + 'movie/{id}/rating', params);
         };
         self.deleteMovieRating = function(data){
             data = data || {};

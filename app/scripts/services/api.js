@@ -6,8 +6,9 @@
 
     function movApi($q, $rootScope, CONFIG){
 
-        var wrapKey = function(){
-            return '?api_key=' + CONFIG.key;
+        var wrapKey = function(config){
+            var url = config.url;
+            return url + ( (url.indexOf('?') > -1) ? '&api_key=' + CONFIG.key : '?api_key=' + CONFIG.key );
         },
         httpProxy  = function(config){
             //replace dynamic data in url {}
@@ -31,12 +32,12 @@
                 var matchUrl = config.url.indexOf(CONFIG.baseUrl) > -1;
 
                 if(matchUrl) {
-                    config.url = config.url + wrapKey();
+                    config.url = wrapKey(config);
                 }
                 //replace {} with extra params to do: need to refactor this
                 if(typeof config.params !=='undefined' && config.params.hasOwnProperty('extraParams') && matchUrl){
                     config.url = httpProxy(config);
-                }if(config.method === 'POST' && config.data.data.hasOwnProperty('extraParams') && matchUrl){
+                }if(config.method === 'POST' && config.data.hasOwnProperty('extraParams') && matchUrl){
                     config.url = httpProxy(config);
                 }
 

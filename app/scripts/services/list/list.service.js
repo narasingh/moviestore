@@ -15,29 +15,29 @@
 
         MovList.prototype = {
 
-            getList : function(params){
-                //return this.searchList(params);
+            getList : function(data){
+                return $http.get(this.baseUrl + 'account/id/lists?session_id=' + this.sessionId, { params : data });
             },
             getListById : function(params){
-                $http.post(this.baseUrl + 'list/{id}', { data : params });
+                return $http.post(this.baseUrl + 'list/{id}', params);
             },
-            deleteListById : function(params){
-                $http.delete(this.baseUrl + 'list/{id}', { data : params });
+            deleteListById : function(data){
+                return $http.delete(this.baseUrl + 'list/{id}', { params : data });
             },
             createNewList : function(params){
-                $http.post(this.baseUrl + 'list/', { data : params });
+                return $http.post(this.baseUrl + 'list?session_id=' + this.sessionId, params);
             },
             itemIsAdded : function(params){
-                $http.post(this.baseUrl + 'list/{id}/item_status', { data : params });
+                return $http.post(this.baseUrl + 'list/{id}/item_status', params);
             },
             addListItem : function(params){
-                $http.post(this.baseUrl + 'list/{id}/add_item', { data : params });
+                return $http.post(this.baseUrl + 'list/{id}/add_item', params);
             },
             removeListItem : function(params){
-                $http.post(this.baseUrl + 'list/{id}/remove_item', { data : params });
+                return $http.post(this.baseUrl + 'list/{id}/remove_item', params);
             },
             clearListItems : function(params){
-                $http.post(this.baseUrl + 'list/{id}/clear', { data : params });
+                return $http.post(this.baseUrl + 'list/{id}/clear', params);
             }
         };
 

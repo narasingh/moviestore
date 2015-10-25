@@ -52,6 +52,19 @@
                         }]
                     }
                 })
+                .state('createlist', {
+                    url : '/create.list',
+                    templateUrl : 'views/authentication/user-account.html',
+                    controller : 'ListController as listCtrl',
+                    resolve : {
+                        auth : ['$q', 'Auth', function($q, Auth){
+                            if(!Auth.isLoggedIn()){
+                                var errorObject = { code: 'NOT_AUTHENTICATED' };
+                                return $q.reject(errorObject);
+                            }
+                        }]
+                    }
+                })
                 .state('logout',{
                     url : '/user.logout',
                     resolve : {
@@ -112,7 +125,7 @@
             $rootScope.$on('mov-error.handler', function(event, rejection){
 
                 //handle errors
-                var status = ~~rejection.status;
+                var status = rejection.status;
                 var objStatus = {
                     401 : Logger.error,
                     200 : Logger.success

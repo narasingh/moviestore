@@ -4,19 +4,51 @@
 (function(){
     'use strict';
 
-    function ListControllerI(MovList){
+    function ListController($scope, MovList, $state){
 
         var self = this;
+        var listObj = new MovList();
+        var pages = {
+            'account' : 'views/authentication/favorite.html',
+            'watchlist' : 'views/authentication/watchlist.html',
+            'createlist' : 'views/authentication/create-list.html'
+        };
+        var listObj = new MovList();
+        var onSuccess = function(response){
 
-        function init(){
-            self.tabs = [
-                {title : 'My List', state : 'home'},
-                {title : 'My favorite', state : 'nowplaying'},
-                {title : 'Add new', state : 'upcoming'}
-            ];
-        }
+                self.list = response.data;
 
+            },
+            loadList = function(){
+                var data = {
+                    page : 1
+                };
+                listObj.getList(data).then(onSuccess);
+            };
+
+        self.list = {};
+        self.tabs = [
+            {title : 'My Favorite', state : 'account'},
+            {title : 'My Watchlist', state : 'watchlist'},
+            {title : 'Add new', state : 'createlist'}
+        ];
+
+        self.page = pages[$state.current.name];
+        self.languages = listObj.languageList();
+        self.data = {
+            language : self.languages[0]
+        };
+        self.createNew = function(list){
+            var data = list.data;
+                data.language = data.language.code;
+            listObj.createNewList(data).then(onSuccess);
+        };
+        self.delete = function(){
+
+        };
+
+        loadList();
     }
-    ListControllerI.$inject = ['MovList'];
+    ListController.$inject = ['$scope','MovList', '$state'];
     angular.module('mov.list').controller('ListController', ListController);
 }());
