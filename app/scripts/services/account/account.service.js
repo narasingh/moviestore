@@ -12,7 +12,7 @@
         var sessionId = self.getSessionId();
 
             self.getAccountInfo = function(){
-                return $http.get(baseUrl + 'account', { params : {session_id : sessionId } });
+                return $http.get(baseUrl + 'account', { params : {session_id : self.getSessionId() } });
             };
             self.getAccountList = function(id){
                 return $http.get(baseUrl + 'account/id/lists', { params : {session_id : sessionId } });

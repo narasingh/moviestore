@@ -38,6 +38,30 @@
                     url : '/user.login',
                     templateUrl : 'views/authentication/user-login.html',
                     controller : 'UserLoginController as userCtrl'
+                })
+                .state('account', {
+                    url : '/user.account',
+                    templateUrl : 'views/authentication/user-account.html',
+                    controller : 'ListController as listCtrl',
+                    resolve : {
+                        auth : ['$q', 'Auth', function($q, Auth){
+                             if(!Auth.isLoggedIn()){
+                                 var errorObject = { code: 'NOT_AUTHENTICATED' };
+                                 return $q.reject(errorObject);
+                             }
+                        }]
+                    }
+                })
+                .state('logout',{
+                    url : '/user.logout',
+                    resolve : {
+                        auth : ['$q', 'Auth', function($q, Auth){
+                            if(Auth.logout()){
+                                var errorObject = { code: 'NOT_AUTHENTICATED' };
+                                return $q.reject(errorObject);
+                            }
+                        }]
+                    }
                 });
 
                 //toastr config
@@ -64,17 +88,25 @@
             'baseUrl' : 'http://api.themoviedb.org/3/',
             'key' : '6fbb0ef60b41be2618fdba45a982f5af'
         })
-        .run(['movCommonApi','Logger', '$rootScope', '$state', function(movCommonApi, Logger, $rootScope){
+        .run(['movCommonApi','Logger', '$rootScope', '$state', function(movCommonApi, Logger, $rootScope, $state){
             //make onload calls
             movCommonApi.setConfiguration();
             movCommonApi.setSessionId();
 
             //handle state change
             $rootScope.$on('$stateChangeStart', function(event, toState){
-                //check that user is logged in
+                //check user is logged in
                $rootScope.currentState = function(state){
                    return (typeof state === 'object' && state.indexOf(toState.name) > -1) || (toState.name === state);
                };
+            });
+
+            $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error){
+
+                if(error.code === 'NOT_AUTHENTICATED'){
+                    $state.go('login');
+                }
+
             });
 
             $rootScope.$on('mov-error.handler', function(event, rejection){

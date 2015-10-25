@@ -22,12 +22,22 @@
                 }
             },
             getSessionId : function(){
-               return $sessionStorage.$default().guest_session_id || null;
+               return $sessionStorage.$default().session_id || $sessionStorage.$default().guest_session_id || null;
             },
             generateNewSession : function(){
                 //generate new session
+                var self = this;
                 var data = this.getToken();
-                return $http.get(baseUrl + '/authentication/session/new', { params : data });
+                var defer = $q.defer();
+
+                $http.get(baseUrl + '/authentication/session/new', { params : data }).then(function(response){
+                    self.setToken(response);
+                    defer.resolve(response);
+                })
+                .catch(function(error){
+                    defer.reject(error);
+                });
+                return defer.promise;
             },
             generateGuestSession : function(){
                 //generate new session
@@ -40,57 +50,64 @@
                     exp = tokenObj.expires_at,
                     match = exp && exp.match(/^(\d+)-(\d+)-(\d+) (\d+)\:(\d+)\:(\d+)$/) || [],
                     expireTime = match.length && new Date(match[1], match[2] - 1, match[3], match[4], match[5], match[6]),
-                    utcTime = Math.floor(expireTime.getTime()/1000),
+                    utcTime = expireTime && Math.floor(expireTime.getTime()/1000) || Date.now(),
                     now = Date.now()/1000;
                 var defer = $q.defer();
 
                 if(tokenObj.request_token && ((utcTime - now) < (60)) || !tokenObj.request_token){
-                    $http.get(baseUrl + 'authentication/token/new', {}).then(self.setToken);
+                    $http.get(baseUrl + 'authentication/token/new', {}).then(function(response){
+
+                        self.setToken(response);
+                        defer.resolve({ request_token : response.data.request_token });
+                    }).catch(function(error){
+                        defer.reject(error);
+                    });
+                }else{
+                    defer.resolve(tokenObj);
                 }
-                //return token
-                $q.all(self.getToken()).then(function(result){
-                    defer.resolve(result);
-                },function(error){
-                    defer.reject(error);
-                });
 
                 return defer.promise;
 
             },
             getAuthTokenWithLogin : function(data){
-                return $http.get(baseUrl + 'authentication/token/validate_with_login', { params : data }).then(this.registerTokenWithLogin);
+
+                return $http.get(baseUrl + 'authentication/token/validate_with_login', { params : data })
+                    .then(this.registerTokenWithLogin.bind(this))
+                    .catch(function(error){
+                        return error;
+                    });
             },
             getToken : function(){
-              var tokenObj = $sessionStorage.$default();
-
+                var tokenObj = $sessionStorage.$default();
                 return {
-                    request_token : tokenObj.request_token || null,
-                    expires_at : tokenObj.request_expires_at && tokenObj.request_expires_at.replace(' UTC','') || null
+                    request_token: tokenObj.request_token || null,
+                    expires_at: tokenObj.request_expires_at && tokenObj.request_expires_at.replace(' UTC', '') || null
                 };
 
             },
             registerTokenWithLogin : function(response){
 
-                var defer = $q.defer();
                 var self = this;
 
                 if(typeof response ==='object' && response.status === 200){
                     $sessionStorage.$default({
-                        request_token : self.base64Encode(response.data.request_token)
+                        request_token : self.base64Encode(response.data.request_token),
+                        userInfo : 'MOV' + response.data.request_token
                     });
-                    defer.resolve({ status : response.status });
-                }else{
-                    defer.reject({ status : response.status });
                 }
+                //return status 200 or error
+                return response.status;
 
-                return defer.promise;
             },
             setToken : function(response){
-
-                if(typeof response ==='object'){
+                if(typeof response ==='object' && response.data.request_token){
                     $sessionStorage.$default({
                         request_token : response.data.request_token,
                         request_expires_at : response.data.expires_at
+                    });
+                }else if(response.data.session_id){
+                    $sessionStorage.$default({
+                        session_id : response.data.session_id
                     });
                 }
             },

@@ -3,31 +3,27 @@
  */
 (function(){
     'use strict';
-    function UserLoginController(movCommonApi, $location){
+    function UserLoginController(Auth, $location, $rootScope){
 
        var self = this;
 
        self.userLogin = function(data){
 
-          //call authenticate service onload
-          movCommonApi.generateAuthToken().then(function(response){
-
-              data.request_token = response.request_token;
-
-              movCommonApi.getAuthTokenWithLogin(data).then(function(response){
-
-                  //check status success and redirect to account
-                  if(response.status === 200){
-                     $location.path('#home');
-                  }
-              });
-
-          });
+           Auth.login(data).then(function(response){
+               if(response.status  && response.status === 200){
+                 $rootScope.$broadcast('user.authencated', response);
+                 $location.path('#home');
+               }
+           }).catch(function(error){
+               console.log(error);
+           });
 
        };
 
+       $rootScope.$broadcast('user.logout');
+
     }
 
-    UserLoginController.$inject = ['movCommonApi', '$location'];
+    UserLoginController.$inject = ['Auth', '$location', '$rootScope'];
     angular.module('mov.authenticate',[]).controller('UserLoginController', UserLoginController);
 }());

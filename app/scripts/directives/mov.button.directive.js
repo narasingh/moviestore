@@ -12,7 +12,8 @@
                 btnId : '@btnId',
                 btnValue : '@btnValue',
                 btnAction : '&btnAction',
-                form : '@form'
+                form : '@form',
+                btnClass : '@btnClass'
             },
             link : function(scope, element, attrs, frmCtrl){
 

@@ -1,0 +1,13 @@
+<ul class="header_right_box" ng-if="isLoggedIn">
+    <li><img src="{{userInfo.avatarUrl}}{{userInfo.avatar}}" alt="" class="img-circle"/></li>
+    <li><p><a href="#user.account">{{userInfo.name}}</a></p></li>
+    <li><p><a href="#user.logout">Logout</a></p></li>
+    <li class="last"><i class="edit"> </i></li>
+    <div class="clearfix"> </div>
+</ul>
+<ul class="header_right_box" ng-if="!isLoggedIn">
+    <li><img src="images/p1.png" alt=""/></li>
+    <li><p><a href="#user.login">Sing In</a></p></li>
+    <li class="last"><i class="edit"> </i></li>
+    <div class="clearfix"> </div>
+</ul>
