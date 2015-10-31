@@ -52,6 +52,19 @@
                         }]
                     }
                 })
+                .state('watchlistmovies', {
+                    url : '/user.watchlist/:type',
+                    templateUrl : 'views/authentication/user-account.html',
+                    controller : 'ListController as listCtrl',
+                    resolve : {
+                        auth : ['$q', 'Auth', function($q, Auth){
+                            if(!Auth.isLoggedIn()){
+                                var errorObject = { code: 'NOT_AUTHENTICATED' };
+                                return $q.reject(errorObject);
+                            }
+                        }]
+                    }
+                })
                 .state('showlist', {
                     url : '/user.account/:page',
                     templateUrl : 'views/authentication/user-account.html',

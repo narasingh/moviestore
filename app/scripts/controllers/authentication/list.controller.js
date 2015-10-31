@@ -52,7 +52,6 @@
         self.delete = function(){
 
         };
-
         loadList();
     }
     ListController.$inject = ['$scope','MovList', '$state', 'Auth'];

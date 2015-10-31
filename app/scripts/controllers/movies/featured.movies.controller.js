@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function MovFeaturedController($scope, movMoviesApi, movCommonApi){
+    function MovFeaturedController($scope, movMoviesApi, movCommonApi, Auth){
 
 
         var popularMovies = function(response){
@@ -45,6 +45,7 @@
             }
         };
 
+        $scope.isLoggedIn = Auth.isLoggedIn();
         // Register event handler
         $scope.$on('endlessScroll:next', function() {
             // Determine which page to load
@@ -60,6 +61,6 @@
 
     }
 
-    MovFeaturedController.$inject = ['$scope', 'movMoviesApi', 'movCommonApi'];
+    MovFeaturedController.$inject = ['$scope', 'movMoviesApi', 'movCommonApi', 'Auth'];
     angular.module('mov.featured',['dc.endlessScroll']).controller('movFeaturedController', MovFeaturedController);
 }());

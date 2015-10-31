@@ -3,42 +3,67 @@
  */
 (function(){
     'use strict';
-    function addToList(MovList, movCommonApi){
+    function addToList(movAccountApi, movCommonApi, Auth){
 
         return {
             restrict : 'E',
             scope : {
-                movId : '@movId'
+                type : '@type',
+                mediaType : '@mediaType',
+                mediaId : '@mediaId'
             },
             link : function(scope, element, attr){
 
-               var movObj = new MovList();
                var sessionId = movCommonApi.getSessionId();
+               var userDetails = Auth.getInfoSessioin();
+               var extra =  [{
+                    key : 'id',
+                    value : userDetails.id
+                }];
 
-               var addToFavorite = function(events){
+               scope.addToFavorite = function(isFavorite){
                     //add movie to list
                     var params = {
-                            media_id : scope.movId,
-                            extraParams : [{
-                                key : 'id',
-                                value : '' //to do
-                            }]
+                            media_id : scope.mediaId,
+                            media_type : scope.mediaType,
+                            favorite : isFavorite,
+                            extraParams : extra
                         };
 
-                    movObj.addListItem(params).then(function(response){
-                        console.log(response);
+                    movAccountApi.addToFavorite(params).then(function(response){
+                        if(response.data.status_code === 12){
+                            //remove from favorite
+                            //scope.addToFavorite(false);
+                            scope.addToFavorite(false);
+                        }
                     });
-
-                    events.preventDefault();
                };
+               scope.addToWatchList = function(isAddedWatch){
+                   //add movie to list
+                   var params = {
+                       media_id : scope.mediaId,
+                       media_type : scope.mediaType,
+                       watchlist : isAddedWatch,
+                       extraParams : extra
+                   };
 
-               element.find('.fa-heart').bind('click', addToFavorite)
+                   movAccountApi.addToWatchList(params).then(function(response){
+                       if(response.data.status_code === 12){
+                           scope.addToWatchList(false);
+                       }
+                   });
+               };
+               var types = {
+                    list : 'views/list/mov.addtolist.directive.html',
+                    detail : 'views/authentication/mov.addtowatch.directive.html'
+               };
+               scope.html = scope.type && types[scope.type] || types['list'];
 
             },
-            templateUrl : 'views/list/mov.addtolist.directive.html'
+            template : '<ng-include src="html"></ng-include>'
         };
 
     }
-    addToList.$inject = ['MovList', 'movCommonApi'];
+    addToList.$inject = ['movAccountApi', 'movCommonApi', 'Auth'];
     angular.module('mov.common').directive('addToList', addToList);
 }());

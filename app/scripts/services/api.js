@@ -53,7 +53,9 @@
             },
             response : function(response){
                 $rootScope.$broadcast('us-spinner:stop', 'spinner-1');
-                //$rootScope.$broadcast('mov-success.handler', response);
+                if(response.data && response.data.status_code){
+                    $rootScope.$broadcast('mov-success.handler', response);
+                }
                 return $q.resolve(response);
             },
             responseError : function(rejection){

@@ -1786,7 +1786,7 @@ h2.m_3 {
     font-size: 10px;
 }
 
-.star-rating .star.filled {
+.star-rating .star.filled, .btn-group .fa {
     color: #d8232a;
 }
 #in-theaters .movie__images img{
