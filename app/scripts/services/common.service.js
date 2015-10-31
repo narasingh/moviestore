@@ -109,6 +109,10 @@
                     $sessionStorage.$default({
                         session_id : response.data.session_id
                     });
+                }else if(response.data.guest_session_id){
+                    $sessionStorage.$default({
+                        guest_session_id : response.data.guest_session_id
+                    });
                 }
             },
             setImageInfo : function(response){

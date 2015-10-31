@@ -1,4 +1,4 @@
-<div class="box_2 upcoming">
+<div class="box_2 upcoming playing">
     <div class="col-md-12 grid_3">
         <div class="row_1">
             <div class="col-md-3 grid_4 animate-repeat2" dir-paginate="movie in movUpcomingCtrl.movies | itemsPerPage: movUpcomingCtrl.pagination.per_page" total-items="movUpcomingCtrl.pagination.total_results" current-page="movUpcomingCtrl.pagination.current_page">
@@ -17,6 +17,7 @@
                             <i class="icon4"> </i>
                             <p class="m_3">{{ movie.original_title }}</p>
                         </div>
+                        <add-to-list></add-to-list>
                     </div>
                 </a></div>
         </div>

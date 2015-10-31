@@ -31,7 +31,7 @@
                 return $http.post(this.baseUrl + 'list/{id}/item_status', params);
             },
             addListItem : function(params){
-                return $http.post(this.baseUrl + 'list/{id}/add_item', params);
+                return $http.post(this.baseUrl + 'list/{id}/add_item?session_id=' + this.sessionId, params);
             },
             removeListItem : function(params){
                 return $http.post(this.baseUrl + 'list/{id}/remove_item', params);

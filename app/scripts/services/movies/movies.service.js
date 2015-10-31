@@ -3,10 +3,11 @@
  */
 (function(){
     'use strict';
-    function movMoviesApi($http, CONFIG){
+    function movMoviesApi($http, CONFIG, movCommonApi){
         var self = this;
         var data,
-            baseUrl = CONFIG.baseUrl;
+            baseUrl = CONFIG.baseUrl,
+            sessionId = movCommonApi.getSessionId();
 
         self.getMovieDetail = function(data){
             data = data || {};
@@ -61,7 +62,8 @@
         };
         self.setMovieRating = function(params){
             var params = params || {};
-            return $http.post(baseUrl + 'movie/{id}/rating', params);
+            //to do need to change it to session id if user logged in
+            return $http.post(baseUrl + 'movie/{id}/rating?guest_session_id=' + sessionId, params);
         };
         self.deleteMovieRating = function(data){
             data = data || {};
@@ -89,6 +91,6 @@
         };
     }
 
-    movMoviesApi.$inject = ['$http', 'CONFIG'];
+    movMoviesApi.$inject = ['$http', 'CONFIG', 'movCommonApi'];
     angular.module('mov.movies', []).service('movMoviesApi', movMoviesApi );
 }());

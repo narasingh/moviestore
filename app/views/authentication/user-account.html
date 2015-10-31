@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">
     <div class="col-md-12">
         <mov-ui-tab data-list="listCtrl.tabs" data-is-show="{{currentState(['account','watchlist','createlist'])}}"></mov-ui-tab>
     </div>
@@ -9,7 +9,70 @@
             <ng-include src="listCtrl.page"></ng-include>
         </div>
         <div class="clearfix"></div>
-        <!--<mov-end-less-pagination></mov-end-less-pagination>-->
     </div>
     <div class="clearfix"> </div>
+</div>
+-->
+<div class="row profile">
+    <div class="col-sm-3">
+        <div class="row">
+            <div class="col-xs-7 col-sm-12">
+                <img class="profile-image" src="{{listCtrl.userInfo.avatarUrl}}{{listCtrl.userInfo.avatar}}">
+            </div>
+            <div class="col-xs-5 col-sm-12 profile">
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul>
+                        <li class="active">
+                            <a href="#">Recommendations</a>
+                            <ul>
+                                <li><a href="#movies"><i class="fa fa-film"></i> Movies</a></li>
+                                <li><a href="#tvshows"><i class="fa fa-television"></i> Tv Shows</a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#">Favorites</a>
+                            <ul>
+                                <li><a href="#movies"><i class="fa fa-film"></i> Movies</a></li>
+                                <li><a href="#tvshows"><i class="fa fa-television"></i> Tv Shows</a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#">Rated</a>
+                            <ul>
+                                <li><a href="#movies"><i class="fa fa-film"></i> Movies</a></li>
+                                <li><a href="#tvshows"><i class="fa fa-television"></i> Tv Shows</a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#">Watchlist</a>
+                            <ul>
+                                <li><a href="#movies"><i class="fa fa-film"></i> Movies</a></li>
+                                <li><a href="#tvshows"><i class="fa fa-television"></i> Tv Shows</a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#">Lists</a>
+                            <ul>
+                                <li><a href="#create.list">Create New</a></li>
+                                <li><a href="#">View All</a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+        </div><!--/row-->
+
+    </div><!--/col-->
+
+    <div class="col-sm-9">
+        <!--<mov-ui-tab data-list="listCtrl.tabs" data-is-show="{{currentState(['account','watchlist','createlist'])}}"></mov-ui-tab>-->
+        <div class="tab-content">
+            <ng-include src="listCtrl.page"></ng-include>
+        </div>
+    </div><!--/col-->
 </div>

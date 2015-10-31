@@ -1839,3 +1839,56 @@ h2.m_3 {
     width: 100%;
 }
 /*messages*/
+
+/* Profile controler */
+.profile {
+    margin: 20px 0;
+}
+/* end profile container */
+.profile-usermenu ul a{
+    color: #000;
+}
+.profile-usermenu ul li{
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    font-size: 1.2em;
+    color: #3f444e;
+}
+.profile-usermenu ul li li{
+    border: none;
+    padding: 2px 0;
+}
+.profile-usermenu ul li ul{
+    display: none;
+    font-size: 0.7em;
+    padding-left: 0;
+    margin-top: 4px;
+}
+.profile-usermenu ul li:hover ul{
+    display: block;
+}
+.profile-usermenu ul li li a,
+.profile-usermenu ul li li a:link{
+    padding-left: 10px;
+}
+.upcoming .addto-watchlist{
+    position: absolute;
+    bottom: 0;
+    background: #000;
+    height: 30px;
+    opacity: 0.70;
+    width: 100%;
+    display: none;
+}
+.upcoming.playing .addto-watchlist{
+    bottom: 15px;
+    width: 95%;
+}
+.upcoming .grid_4 a:hover .addto-watchlist{
+    display: inline-block;
+}
+.upcoming .grid_4 .fa{
+  color: #fff;
+  margin: 6px 10px;
+}

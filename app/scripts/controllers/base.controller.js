@@ -13,7 +13,8 @@
             self.tabs = [
                 {title : 'Featured Movies', state : 'home'},
                 {title : 'Now Playing', state : 'nowplaying'},
-                {title : 'Coming Soon', state : 'upcoming'}
+                {title : 'Coming Soon', state : 'upcoming'},
+                {title : 'Top Rated', state: 'latest'}
             ];
 
         }

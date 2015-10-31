@@ -10,7 +10,8 @@
             scope : {
                 ratingValue: '=ngModel',
                 max: '=?', // optional (default is 5)
-                readonly: '=?'
+                readonly: '=?',
+                movId : '@movId'
             },
             link : function(scope){
 
@@ -29,7 +30,7 @@
                         var data = {
                             extraParams : [{
                                 key : 'id',
-                                value : movCommonApi.getSessionId()
+                                value : scope.movId
                             }],
                             value : scope.ratingValue
                         };

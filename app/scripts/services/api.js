@@ -13,7 +13,7 @@
         httpProxy  = function(config){
             //replace dynamic data in url {}
             var url = config.url,
-                extraParams = config.params && config.params.extraParams || config.data.data.extraParams;
+                extraParams = config.params && config.params.extraParams || config.data.extraParams;
 
             angular.forEach(extraParams, function(data){
                 url = url.replace('{'+data.key+'}', data.value);
@@ -21,7 +21,7 @@
             if(config.params) {
                 delete config.params.extraParams;
             }if(config.data){
-                delete config.data.data.extraParams;
+                delete config.data.extraParams;
             }
             return url;
         };
@@ -53,6 +53,7 @@
             },
             response : function(response){
                 $rootScope.$broadcast('us-spinner:stop', 'spinner-1');
+                //$rootScope.$broadcast('mov-success.handler', response);
                 return $q.resolve(response);
             },
             responseError : function(rejection){

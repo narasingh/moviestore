@@ -52,6 +52,19 @@
                         }]
                     }
                 })
+                .state('showlist', {
+                    url : '/user.account/:page',
+                    templateUrl : 'views/authentication/user-account.html',
+                    controller : 'ListController as listCtrl',
+                    resolve : {
+                        auth : ['$q', 'Auth', function($q, Auth){
+                            if(!Auth.isLoggedIn()){
+                                var errorObject = { code: 'NOT_AUTHENTICATED' };
+                                return $q.reject(errorObject);
+                            }
+                        }]
+                    }
+                })
                 .state('createlist', {
                     url : '/create.list',
                     templateUrl : 'views/authentication/user-account.html',
@@ -80,20 +93,21 @@
                 //toastr config
                 angular.extend(toastrConfig, {
                     autoDismiss: false,
-                    containerId: 'mov-message-container',
+                    containerId: 'toast-container',
                     maxOpened: 0,
                     newestOnTop: true,
-                    positionClass: 'toast-top-center',
+                    positionClass: 'toast-top-right',
                     preventDuplicates: false,
                     preventOpenDuplicates: false,
-                    target: '.message',
-                    iconClasses : {
+                    target: 'body'
+                    /*iconClasses : {
                         error: 'alert alert-danger',
                         info: 'alert alert-info',
                         success: 'alert alert-success',
                         warning: 'alert alert-warning'
                     },
                     toastClass : 'global-message'
+                    */
                 });
 
         }])
@@ -122,13 +136,32 @@
 
             });
 
+            $rootScope.$on('mov-success.handler', function(event, response){
+
+                //handle errors
+                var status = response.status;
+                var objStatus = {
+                    200 : Logger.success,
+                    201 : Logger.success
+
+                };
+
+                if(objStatus.hasOwnProperty(status)){
+                    objStatus[status].call(this, response.data.success_message, response.data,  'Success');
+                }
+
+            });
+
             $rootScope.$on('mov-error.handler', function(event, rejection){
 
                 //handle errors
                 var status = rejection.status;
                 var objStatus = {
                     401 : Logger.error,
-                    200 : Logger.success
+                    403 : Logger.error,
+                    500 : Logger.error,
+                    501 : Logger.error
+
                 };
 
                 if(objStatus.hasOwnProperty(status)){

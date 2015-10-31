@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function ListController($scope, MovList, $state){
+    function ListController($scope, MovList, $state, Auth){
 
         var self = this;
         var listObj = new MovList();
@@ -25,6 +25,7 @@
                 };
                 listObj.getList(data).then(onSuccess);
             };
+        var info = Auth.getInfoSessioin();
 
         self.list = {};
         self.tabs = [
@@ -33,6 +34,11 @@
             {title : 'Add new', state : 'createlist'}
         ];
 
+        self.userInfo = {
+            avatar : info.avatar.gravatar + '.jpg?s=251 1x',
+            name : info.username,
+            avatarUrl : 'https://secure.gravatar.com/avatar/'
+        };
         self.page = pages[$state.current.name];
         self.languages = listObj.languageList();
         self.data = {
@@ -49,6 +55,6 @@
 
         loadList();
     }
-    ListController.$inject = ['$scope','MovList', '$state'];
+    ListController.$inject = ['$scope','MovList', '$state', 'Auth'];
     angular.module('mov.list').controller('ListController', ListController);
 }());
