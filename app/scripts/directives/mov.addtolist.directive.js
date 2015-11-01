@@ -18,7 +18,7 @@
                var userDetails = Auth.getInfoSessioin();
                var extra =  [{
                     key : 'id',
-                    value : userDetails.id
+                    value : Auth.isLoggedIn() && userDetails.id || null
                 }];
 
                scope.addToFavorite = function(isFavorite){

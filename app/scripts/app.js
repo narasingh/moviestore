@@ -5,7 +5,7 @@
      */
     angular.module('movapp',
         ['ngStorage', 'ngAnimate', 'angularSpinner', 'toastr', 'mov.api', 'mov.common', 'mov.account', 'mov.movies','mov.featured', 'mov.search', 'mov.list',
-            'dc.endlessScroll', 'ui.router','angularUtils.directives.dirPagination', 'mov.authenticate'])
+            'dc.endlessScroll', 'ui.router','angularUtils.directives.dirPagination', 'mov.authenticate', 'mov.people'])
         .config(['toastrConfig','$stateProvider' , '$urlRouterProvider', function (toastrConfig, $stateProvider, $urlRouterProvider) {
 
             $urlRouterProvider.otherwise('/home');
@@ -39,6 +39,16 @@
                     templateUrl : 'views/authentication/user-login.html',
                     controller : 'UserLoginController as userCtrl'
                 })
+                .state('people', {
+                    url : '/popular.person',
+                    templateUrl : 'views/people/popular-people.html',
+                    controller : 'PeopleController as peopleCtrl'
+                })
+                .state('people/:id', {
+                    url : '/popular.person',
+                    templateUrl : 'views/people/person-info.html',
+                    controller : 'PeopleController as peopleCtrl'
+                })
                 .state('account', {
                     url : '/user.account',
                     templateUrl : 'views/authentication/user-account.html',
@@ -54,6 +64,19 @@
                 })
                 .state('watchlistmovies', {
                     url : '/user.watchlist/:type',
+                    templateUrl : 'views/authentication/user-account.html',
+                    controller : 'ListController as listCtrl',
+                    resolve : {
+                        auth : ['$q', 'Auth', function($q, Auth){
+                            if(!Auth.isLoggedIn()){
+                                var errorObject = { code: 'NOT_AUTHENTICATED' };
+                                return $q.reject(errorObject);
+                            }
+                        }]
+                    }
+                })
+                .state('favoritemovies', {
+                    url : '/user.favorite/:type',
                     templateUrl : 'views/authentication/user-account.html',
                     controller : 'ListController as listCtrl',
                     resolve : {
@@ -105,7 +128,7 @@
 
                 //toastr config
                 angular.extend(toastrConfig, {
-                    autoDismiss: false,
+                    autoDismiss: true,
                     containerId: 'toast-container',
                     maxOpened: 0,
                     newestOnTop: true,

@@ -17,11 +17,11 @@
             self.getFavoriteMovies = function(data){
 
                 var data = angular.extend(data, {session_id : sessionId });
-                return $http.get(baseUrl + 'account/id/favorite/movies', { params : data });
+                return $http.get(baseUrl + 'account/{id}/favorite/movies', { params : data });
             };
             self.getFavoriteTvShows = function(data){
                 var data = angular.extend(data, {session_id : sessionId });
-                return $http.get(baseUrl + 'account/id/favorite/tv', { params : data });
+                return $http.get(baseUrl + 'account/{id}/favorite/tv', { params : data });
             };
             self.addToFavorite = function(params){
                 return $http.post(baseUrl + 'account/{id}/favorite?session_id=' + sessionId , params);
@@ -35,8 +35,7 @@
                 return $http.post(baseUrl + 'account/id/rated/tv/episodes', { params : data });
             };
             self.getWatchListMovies = function(data){
-                var data = angular.extend(data, {session_id : sessionId });
-                return $http.post(baseUrl + 'account/id/watchlist/movies', { params : data });
+                return $http.get(baseUrl + 'account/{id}/watchlist/movies?session_id=' + sessionId, { params : data });
             };
             self.getWatchListTv = function(data){
                 var data = angular.extend(data, {session_id : sessionId });

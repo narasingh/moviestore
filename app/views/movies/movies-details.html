@@ -28,7 +28,7 @@
             <!--<p class="movie_option"><strong>Director: </strong><a href="#">suffered </a></p>-->
             <p class="movie_option"><strong>Actors: </strong><mov-credits-actors data-credits="movies.credits.cast"></mov-credits-actors></p>
             <p class="movie_option"><strong>Age restriction: </strong>{{movies.age_restriction}}</p>
-            <add-to-list type="detail"></add-to-list>
+            <add-to-list data-type="detail" data-media-type="movie" data-media-id="{{movies.id}}"></add-to-list>
         </div>
         <div class="clearfix"> </div>
         <p class="m_4">{{movies.description}}</p>

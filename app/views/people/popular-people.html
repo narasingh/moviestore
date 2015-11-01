@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="box_1 col-md-12"> <h1 class="m_2">Popular People</h1></div>
+    <div class="movie_top">
+        <div class="col-md-9">
+            <ul class="media-list">
+                <li class="media animate-repeat" dir-paginate="person in peopleCtrl.people | itemsPerPage: peopleCtrl.pagination.per_page" total-items="peopleCtrl.pagination.total_results" current-page="peopleCtrl.pagination.current_page">
+                    <a href="#people/{{person.id}}" class="movie-beta__link pull-left">
+                        <img data-ng-if="person.profile_path" src="{{peopleCtrl.imageInfo.base_url}}{{peopleCtrl.imageInfo.still_sizes[0]}}{{person.profile_path}}" class="img-responsive" alt="{{person.name}}"/>
+                        <img data-ng-if="!person.profile_path" src="images/no-image.jpg" class="img-responsive" alt="{{movie.original_title}}"/>
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{person.name}}</h4>
+                        <p><strong>Known For</strong> :
+                            <a href="#" ng-repeat="know in person.known_for">{{ know.title }}{{$last ? '' : ', '}}</a>
+                        </p>
+                        <p>{{person.known_for[2].overview}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-xs-9 text-center">
+            <dir-pagination-controls on-page-change="peopleCtrl.pageChanged(newPageNumber)"></dir-pagination-controls>
+        </div>
+        <div class="clearfix"></div>
+    </div>
