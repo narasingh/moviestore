@@ -4,7 +4,7 @@
         <div class="col-md-9">
             <ul class="media-list">
                 <li class="media animate-repeat" dir-paginate="person in peopleCtrl.people | itemsPerPage: peopleCtrl.pagination.per_page" total-items="peopleCtrl.pagination.total_results" current-page="peopleCtrl.pagination.current_page">
-                    <a href="#people/{{person.id}}" class="movie-beta__link pull-left">
+                    <a href="#popular.person/{{person.id}}" class="movie-beta__link pull-left">
                         <img data-ng-if="person.profile_path" src="{{peopleCtrl.imageInfo.base_url}}{{peopleCtrl.imageInfo.still_sizes[0]}}{{person.profile_path}}" class="img-responsive" alt="{{person.name}}"/>
                         <img data-ng-if="!person.profile_path" src="images/no-image.jpg" class="img-responsive" alt="{{movie.original_title}}"/>
                     </a>

@@ -44,8 +44,8 @@
                     templateUrl : 'views/people/popular-people.html',
                     controller : 'PeopleController as peopleCtrl'
                 })
-                .state('people/:id', {
-                    url : '/popular.person',
+                .state('person', {
+                    url : '/popular.person/:id',
                     templateUrl : 'views/people/person-info.html',
                     controller : 'PeopleController as peopleCtrl'
                 })
@@ -176,14 +176,9 @@
 
                 //handle errors
                 var status = response.status;
-                var objStatus = {
-                    200 : Logger.success,
-                    201 : Logger.success
 
-                };
-
-                if(objStatus.hasOwnProperty(status)){
-                    objStatus[status].call(this, response.data.success_message, response.data,  'Success');
+                if([200,201].indexOf(status)  > -1){
+                    Logger.success(response.data.success_message, response.data,  'Success');
                 }
 
             });
@@ -192,16 +187,9 @@
 
                 //handle errors
                 var status = rejection.status;
-                var objStatus = {
-                    401 : Logger.error,
-                    403 : Logger.error,
-                    500 : Logger.error,
-                    501 : Logger.error
 
-                };
-
-                if(objStatus.hasOwnProperty(status)){
-                    objStatus[status].call(this, rejection.data.status_message, rejection.data,  'Error');
+                if([401,403,500,501].indexOf(status) > -1){
+                   Logger.error(rejection.data.status_message, rejection.data,  'Error');
                 }
 
             });

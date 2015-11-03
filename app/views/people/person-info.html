@@ -2,13 +2,31 @@
     <div class="col-sm-3">
         <div class="row">
             <div class="col-xs-7 col-sm-12">
-                <img class="profile-image" src="{{listCtrl.userInfo.avatarUrl}}{{listCtrl.userInfo.avatar}}">
+                <img class="profile-image" src="{{peopleCtrl.imageInfo.base_url}}{{peopleCtrl.imageInfo.still_sizes[1]}}{{peopleCtrl.person.profile_path}}">
             </div>
             <div class="col-xs-5 col-sm-12 profile">
                 <!-- SIDEBAR MENU -->
                 <div class="profile-usermenu">
-
+                    <img class="profile-image" src="{{listCtrl.userInfo.avatarUrl}}{{listCtrl.userInfo.avatar}}">
                 </div>
+                <ul>
+                    <li>
+                        <strong>Place of Birth: </strong>
+                        <p>{{peopleCtrl.person.place_of_birth}}</p>
+                    </li>
+                    <li>
+                        <strong>Adult actor: </strong>
+                        {{peopleCtrl.person.adult}}
+                    </li>
+                    <li>
+                        <strong>Popularity: </strong>
+                        {{peopleCtrl.person.popularity}}
+                    </li>
+                    <li>
+                        <strong>Also known As: </strong>
+                        {{peopleCtrl.person.also_known_as}}
+                    </li>
+                </ul>
                 <!-- END MENU -->
             </div>
         </div><!--/row-->
@@ -16,6 +34,8 @@
     </div><!--/col-->
 
     <div class="col-sm-9">
-        <h2>Lorem lipsum</h2>
+        <h2>{{peopleCtrl.person.name}}</h2>
+        <strong>Biography</strong>
+        <p>{{peopleCtrl.person.biography}}</p>
     </div><!--/col-->
 </div>
