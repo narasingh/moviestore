@@ -12,9 +12,9 @@
                 mediaType : '@mediaType',
                 mediaId : '@mediaId'
             },
-            link : function(scope, element, attr){
+            link : function(scope){
 
-               var sessionId = movCommonApi.getSessionId();
+               //var sessionId = movCommonApi.getSessionId();
                var userDetails = Auth.getInfoSessioin();
                var extra =  [{
                     key : 'id',
@@ -57,7 +57,7 @@
                     list : 'views/list/mov.addtolist.directive.html',
                     detail : 'views/authentication/mov.addtowatch.directive.html'
                };
-               scope.html = scope.type && types[scope.type] || types['list'];
+               scope.html = scope.type && types[scope.type] || types.list;
 
             },
             template : '<ng-include src="html"></ng-include>'

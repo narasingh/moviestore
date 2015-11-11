@@ -2,7 +2,7 @@
 //@extend-elements
 //original selectors
 //[data-tooltip]:before, [data-tooltip]:after
-%extend_1 {
+@mixin extend_1 {
 	position: absolute;
 	visibility: hidden;
 	opacity: 0;
@@ -11,7 +11,7 @@
 
 //original selectors
 //ul.list_1, ul.list_3, ul.list_4
-%extend_2 {
+@mixin extend_2 {
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -19,7 +19,7 @@
 
 //original selectors
 //i.icon1, i.icon2, i.icon3
-%extend_3 {
+@mixin extend_3 {
 	width: 20px;
 	height: 20px;
 	background: $url_0 -7px -42px;
@@ -29,7 +29,7 @@
 
 //original selectors
 //ul.list_3 li p, ul.list_5 li p
-%extend_4 {
+@mixin extend_4 {
 	float: left;
 	color: $white;
 	font-size: 1.2em;
@@ -37,7 +37,7 @@
 
 //original selectors
 //ul.list_4 li, ul.list_6 li
-%extend_5 {
+@mixin extend_5 {
 	color: $color_bright_gray_approx;
 	font-weight: 600;
 	font-size: 1.1em;
@@ -47,7 +47,7 @@
 
 //original selectors
 //.nbs-flexisel-nav-left, .nbs-flexisel-nav-right
-%extend_6 {
+@mixin extend_6 {
 	width: 45px;
 	height: 45px;
 	position: absolute;
@@ -58,7 +58,7 @@
 
 //original selectors
 //.data p, .data-middle, .data-last p
-%extend_7 {
+@mixin extend_7 {
 	color: $color_mountain_mist_approx;
 	font-size: 1em;
 	line-height: 1.5em;
@@ -66,7 +66,7 @@
 
 //original selectors
 //.text input[type="text"], .text textarea
-%extend_8 {
+@mixin extend_8 {
 	width: 70%;
 	font-size: 1.1em;
 	margin: 10px 0;
@@ -81,7 +81,7 @@
 
 //original selectors
 //.login-left h3, .login-right h3
-%extend_9 {
+@mixin extend_9 {
 	color: $black;
 	font-size: 1.5em;
 	padding-bottom: 0.5em;
@@ -89,7 +89,7 @@
 
 //original selectors
 //.login-left p, .login-right p
-%extend_10 {
+@mixin extend_10 {
 	color: $color_mountain_mist_approx;
 	display: block;
 	font-size: 1em;
@@ -99,15 +99,25 @@
 
 //original selectors
 //.acount-btn:hover, .login-right input[type="submit"]:hover
-%extend_11 {
+@mixin extend_11 {
 	background: $color_bright_gray_approx;
 	text-decoration: none;
 	color: $white;
 }
 
 //original selectors
+//.login-right input[type="text"], .login-right input[type="password"]
+@mixin extend_12 {
+	border: 1px solid $color_mercury_approx;
+	outline-color: $color_alizarin_crimson_approx;
+	width: 96%;
+	font-size: 0.8125em;
+	padding: 10px;
+}
+
+//original selectors
 //.register-top-grid h3, .register-bottom-grid h3
-%extend_12 {
+@mixin extend_13 {
 	color: $black;
 	font-size: 1.5em;
 	padding-bottom: 20px;
@@ -116,7 +126,7 @@
 
 //original selectors
 //.register-top-grid div, .register-bottom-grid div
-%extend_13 {
+@mixin extend_14 {
 	width: 48%;
 	float: left;
 	margin: 10px 0;
@@ -124,7 +134,7 @@
 
 //original selectors
 //.register-top-grid span, .register-bottom-grid span
-%extend_14 {
+@mixin extend_15 {
 	color: $color_mountain_mist_approx;
 	display: block;
 	font-size: 1em;
@@ -132,7 +142,7 @@
 
 //original selectors
 //.register-top-grid input[type="text"], .register-bottom-grid input[type="text"]
-%extend_15 {
+@mixin extend_16 {
 	border: 1px solid $color_gallery_approx;
 	outline-color: $color_outrageous_orange_approx;
 	width: 96%;
@@ -142,7 +152,7 @@
 
 //original selectors
 //ul.list_3, ul.list_5
-%extend_16 {
+@mixin extend_17 {
 	top: -215px;
 	width: 30%;
 	left: 210px;
@@ -150,7 +160,7 @@
 
 //original selectors
 //ul.list_3, ul.list_5
-%extend_17 {
+@mixin extend_18 {
 	top: -200px;
 	width: 30%;
 	left: 10px;
@@ -203,7 +213,6 @@ ul {
 	margin: 0;
 	&.header_right_box {
 		padding: 0;
-		margin: 0 0 0 33%;
 		list-style: none;
 		li {
 			float: left;
@@ -226,7 +235,7 @@ ul {
 		}
 	}
 	&.list_1 {
-		@extend %extend_2;
+		@include extend_2;
 		li {
 			display: inline-block;
 			color: $white;
@@ -237,20 +246,20 @@ ul {
 		}
 	}
 	&.list_3 {
-		@extend %extend_2;
+		@include extend_2;
 		position: absolute;
 		top: -184px;
 		left: 15px;
 		width: 100%;
 		li p {
-			@extend %extend_4;
+			@include extend_4;
 		}
 	}
 	&.list_4 {
-		@extend %extend_2;
+		@include extend_2;
 		padding: 1em;
 		li {
-			@extend %extend_5;
+			@include extend_5;
 			p {
 				float: left;
 			}
@@ -265,7 +274,7 @@ ul {
 		padding: 0;
 		list-style: none;
 		li p {
-			@extend %extend_4;
+			@include extend_4;
 		}
 	}
 	&.list_6 {
@@ -273,7 +282,7 @@ ul {
 		margin: 0;
 		list-style: none;
 		li {
-			@extend %extend_5;
+			@include extend_5;
 		}
 	}
 	&.list_7 {
@@ -442,10 +451,10 @@ body {
 		border-width: 6px;
 		border-style: solid;
 		border-color: rgba(0, 0, 0, 0);
-		@extend %extend_1;
+		@include extend_1;
 	}
 	&:after {
-		@extend %extend_1;
+		@include extend_1;
 		height: 25px;
 		padding: 7px 12px 0;
 		font-size: 13px;
@@ -529,6 +538,67 @@ body {
 		}
 	}
 }
+.resp-tabs-list {
+	width: 100%;
+	list-style: none;
+	padding: 0;
+	a.m_2 {
+		float: left;
+		font-size: 0.9em;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 0;
+		color: 000;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+.resp-tab-item {
+	color: $black;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 5px;
+	text-align: center;
+	list-style: none;
+	outline: none;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.3s ease-out;
+	text-transform: uppercase;
+	float: left;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-size: 1.2em;
+	font-weight: 600;
+	font-family: $font_2, $font_1;
+	background-color: $color_alabaster_approx;
+	border: 4px 4px 0 0;
+	&:hover {
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: none;
+	}
+}
+.resp-tab-active {
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: none;
+	float: left;
+	text-decoration: none;
+	background-color: $white;
+	text-transform: capitalize;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.3s ease-in-out;
+	a {
+		color: $color_bright_gray_approx;
+		text-decoration: none;
+	}
+}
+.tab-main {
+	border-bottom: 1px solid $color_celeste_approx;
+	margin-bottom: 10px;
+	float: left;
+	width: 100%;
+}
 i {
 	&.edit {
 		width: 20px;
@@ -537,14 +607,14 @@ i {
 		display: inline-block;
 	}
 	&.icon1 {
-		@extend %extend_3;
+		@include extend_3;
 	}
 	&.icon2 {
-		@extend %extend_3;
+		@include extend_3;
 		background: $url_0 -33px -42px;
 	}
 	&.icon3 {
-		@extend %extend_3;
+		@include extend_3;
 		background: $url_0 -60px -42px;
 	}
 	&.icon4 {
@@ -657,7 +727,7 @@ a {
 		&:after {
 			content: "\f111";
 			font-size: 0;
-			font-family: $font_2;
+			font-family: $font_3;
 			visibility: visible;
 			display: block;
 			height: 12px;
@@ -941,6 +1011,8 @@ span {
 	img {
 		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 5px;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 3px 3px 4px $color_silver_chalice_approx;
 	}
 	&:hover {
 		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
@@ -948,6 +1020,15 @@ span {
 		opacity: 0.8;
 		i.icon4 {
 		}
+	}
+	ul.list_7 {
+		top: -124px;
+	}
+	i.icon7 {
+		top: -124px;
+	}
+	&.col_1.ng-scope:first-child {
+		margin-top: 0;
 	}
 }
 .caption1 {
@@ -1111,6 +1192,15 @@ span {
 	cursor: pointer;
 	position: relative;
 	line-height: 0;
+	> img {
+		position: relative;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		max-width: 350px;
+		max-height: 500px;
+		cursor: pointer;
+		positon: relative;
+	}
 	a {
 		color: $black;
 		font-size: 0.8125em;
@@ -1124,27 +1214,18 @@ span {
 		font-size: 0.85em;
 		padding-top: 25px;
 	}
-	> img {
-		position: relative;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		max-width: 350px;
-		max-height: 500px;
-		cursor: pointer;
-		positon: relative;
-	}
 }
 .grid-flex {
 	margin: 10px 0 20px;
-	font-family: $font_3, $font_1;
+	font-family: $font_4, $font_1;
 }
 .nbs-flexisel-nav-left {
-	@extend %extend_6;
+	@include extend_6;
 	left: 0;
 	background: $url_3 no-repeat -15px -113px;
 }
 .nbs-flexisel-nav-right {
-	@extend %extend_6;
+	@include extend_6;
 	right: 0;
 	background: $url_3 no-repeat -76px -113px;
 }
@@ -1193,7 +1274,7 @@ span {
 	border-radius: 24px;
 	background-color: $color_alizarin_crimson_approx;
 	border: solid 3px $white;
-	font: 16px $font_3, $font_1;
+	font: 16px $font_4, $font_1;
 	color: $white;
 	text-align: center;
 	font-weight: bold;
@@ -1245,7 +1326,7 @@ span {
 		height: 20px;
 		background: $url_4 0 1px;
 		float: left;
-		font-family: $font_2;
+		font-family: $font_3;
 		font-style: normal;
 		font-weight: normal;
 	}
@@ -1286,7 +1367,7 @@ span {
 	float: left;
 	width: 93.5%;
 	p {
-		@extend %extend_7;
+		@include extend_7;
 	}
 }
 li {
@@ -1300,7 +1381,7 @@ li {
 	}
 }
 .data-middle {
-	@extend %extend_7;
+	@include extend_7;
 	float: left;
 	width: 92.5%;
 }
@@ -1308,7 +1389,7 @@ li {
 	float: left;
 	width: 92.5%;
 	p {
-		@extend %extend_7;
+		@include extend_7;
 	}
 }
 .preview {
@@ -1318,26 +1399,26 @@ li {
 }
 .text {
 	input[type="text"] {
-		@extend %extend_8;
+		@include extend_8;
 	}
 	textarea {
-		@extend %extend_8;
+		@include extend_8;
 	}
 }
 .login-left {
 	h3 {
-		@extend %extend_9;
+		@include extend_9;
 	}
 	p {
-		@extend %extend_10;
+		@include extend_10;
 	}
 }
 .login-right {
 	h3 {
-		@extend %extend_9;
+		@include extend_9;
 	}
 	p {
-		@extend %extend_10;
+		@include extend_10;
 	}
 	input[type="submit"] {
 		background: $color_alizarin_crimson_approx;
@@ -1351,7 +1432,7 @@ li {
 		border: none;
 		outline: none;
 		&:hover {
-			@extend %extend_11;
+			@include extend_11;
 			background: $black;
 		}
 	}
@@ -1367,11 +1448,10 @@ li {
 		display: block;
 	}
 	input[type="text"] {
-		border: 1px solid $color_mercury_approx;
-		outline-color: $color_alizarin_crimson_approx;
-		width: 96%;
-		font-size: 0.8125em;
-		padding: 10px;
+		@include extend_12;
+	}
+	input[type="password"] {
+		@include extend_12;
 	}
 }
 .acount-btn {
@@ -1384,35 +1464,35 @@ li {
 	display: inline-block;
 	text-transform: uppercase;
 	&:hover {
-		@extend %extend_11;
+		@include extend_11;
 	}
 }
 .register-top-grid {
 	h3 {
-		@extend %extend_12;
+		@include extend_13;
 	}
 	div {
-		@extend %extend_13;
+		@include extend_14;
 	}
 	span {
-		@extend %extend_14;
+		@include extend_15;
 	}
 	input[type="text"] {
-		@extend %extend_15;
+		@include extend_16;
 	}
 }
 .register-bottom-grid {
 	h3 {
-		@extend %extend_12;
+		@include extend_13;
 	}
 	div {
-		@extend %extend_13;
+		@include extend_14;
 	}
 	span {
-		@extend %extend_14;
+		@include extend_15;
 	}
 	input[type="text"] {
-		@extend %extend_15;
+		@include extend_16;
 	}
 }
 .checkbox {
@@ -1447,7 +1527,7 @@ li {
 			left: -1px;
 			width: 15px;
 			height: 15px;
-			font: normal 12px/16px $font_2;
+			font: normal 12px/16px $font_3;
 			text-align: center;
 			position: absolute;
 			opacity: 0;
@@ -1542,14 +1622,15 @@ li {
 				margin: 0 1%;
 			}
 		}
+		&.list_3 {
+			@include extend_17;
+		}
+		&.list_5 {
+			@include extend_17;
+		}
 		&.list_1 li {
 			font-size: 1em;
 		}
-	}
-	ul.list_3,ul.list_5 {
-			top: -215px;
-			width: 30%;
-			left: 210px;
 	}
 	.banner_desc {
 		top: 78.5%;
@@ -1746,10 +1827,13 @@ li {
 		float: right;
 		width: 40%;
 	}
-	ul.list_3, ul.list_5{
-		top: -200px;
-		width: 30%;
-		left: 10px;
+	ul {
+		&.list_3 {
+			@include extend_18;
+		}
+		&.list_5 {
+			@include extend_18;
+		}
 	}
 	.grid_7 {
 		padding: 0;
@@ -1802,6 +1886,106 @@ li {
 		width: 48%;
 	}
 }
+.upcoming {
+	.col-md-3 {
+		padding-bottom: 15px;
+	}
+	.addto-watchlist {
+		position: absolute;
+		bottom: 0;
+		background: $black;
+		height: 30px;
+		opacity: 0.70;
+		width: 100%;
+		display: none;
+	}
+	.grid_4 {
+		.fa {
+			color: $white;
+			margin: 6px 10px;
+		}
+		a:hover .addto-watchlist {
+			display: inline-block;
+		}
+	}
+	ul.list_3 {
+		top: -140px;
+	}
+	i.icon4 {
+		top: -140px;
+	}
+	&.playing .addto-watchlist {
+		bottom: 15px;
+		width: 95%;
+	}
+}
+.star-rating {
+	margin-left: 5px;
+	padding: 0;
+	display: inline-block;
+	.star {
+		padding: 1px;
+		color: $color_alto_approx;
+		font-size: 16px;
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: 0.05em 0.05em $color_silver_chalice_approx;
+		list-style-type: none;
+		display: inline-block;
+		cursor: pointer;
+		&.filled {
+			color: $color_alizarin_crimson_approx;
+		}
+	}
+}
+#in-theaters {
+	.star-rating .star {
+		font-size: 10px;
+	}
+	.movie__images img {
+		max-width: 400px;
+	}
+	.movie-test .movie__info {
+		min-height: 170px;
+	}
+}
+.animate-repeat {
+	&.ng-enter {
+		opacity: 0;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all ease 250ms;
+	}
+	&.ng-enter-stagger {
+		//Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+		transition-delay: 0.1s;
+		//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+		transition-duration: 0s;
+	}
+	&.ng-enter-active {
+		opacity: 1.0;
+	}
+}
+.animate-repeat2 {
+	&.ng-enter {
+		opacity: 0;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all ease 250ms;
+	}
+	&.ng-enter-stagger {
+		opacity: 1;
+		//Instead of the line below you could use @include transition-delay($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10)
+		transition-delay: 0.1s;
+		//Instead of the line below you could use @include transition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+		transition-duration: 0s;
+	}
+	&.ng-enter-active {
+		opacity: 1;
+	}
+}
+#mov-message-container {
+}
+.profile {
+	margin: 20px 0;
+}
 .simptip-position-right.simptip-movable {
 	&:before {
 		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
@@ -1821,6 +2005,10 @@ li {
 		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all .1s linear;
 	}
+}
+resp-tab-active:focus {
+	color: $color_bright_gray_approx;
+	text-decoration: none;
 }
 .callbacks_here a:after {
 	border: 2px solid $color_salmon_approx;
@@ -1928,4 +2116,42 @@ li {
 }
 div.register-bottom-grid {
 	margin-top: 3em;
+}
+.btn-group .fa {
+	color: $color_alizarin_crimson_approx;
+}
+.message #mov-message-container {
+	position: relative;
+	width: 100%;
+}
+.profile-usermenu ul {
+	a {
+		color: $black;
+	}
+	li {
+		list-style: none;
+		border-bottom: 1px solid $color_celeste_approx;
+		padding: 10px 0;
+		font-size: 1.2em;
+		color: $color_bright_gray_approx;
+		li {
+			border: none;
+			padding: 2px 0;
+			a {
+				padding-left: 10px;
+				&:link {
+					padding-left: 10px;
+				}
+			}
+		}
+		ul {
+			display: none;
+			font-size: 0.7em;
+			padding-left: 0;
+			margin-top: 4px;
+		}
+		&:hover ul {
+			display: block;
+		}
+	}
 }

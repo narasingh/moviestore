@@ -71,7 +71,7 @@ module.exports = function (grunt) {
     },
     compass: {
       options: {
-        sassDir: '<%= yeoman.app %>/styles',
+        sassDir: '<%= yeoman.app %>/styles/sass',
         cssDir: '.tmp/styles',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
@@ -119,12 +119,11 @@ module.exports = function (grunt) {
         }]
       }
     },
-    cssmin: {
+    cssmin:{
       dist: {
         files: {
-          '<%= yeoman.dist %>/styles/main.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= yeoman.app %>/styles/{,*/}*.css'
+          '<%= yeoman.dist %>/styles/main.min.css': [
+            '.tmp/styles/{,*/}*.css'
           ]
         }
       }
@@ -132,21 +131,14 @@ module.exports = function (grunt) {
     htmlmin: {
       dist: {
         options: {
-          removeCommentsFromCDATA: true,
-          // https://github.com/yeoman/grunt-usemin/issues/44
-          //collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeAttributeQuotes: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true
+            removeComments: true,
+            collapseWhitespace: true
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>',
+          cwd: '.tmp',
           src: ['*.html', 'views/*.html'],
-          dest: '<%= yeoman.dist %>'
+          dest: '.tmp/'
         }]
       }
     },
@@ -184,7 +176,9 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
-            'components/**/*'
+            //'components/**/*',
+			'*.html',
+			'views/*.html'
           ]
         }]
       }

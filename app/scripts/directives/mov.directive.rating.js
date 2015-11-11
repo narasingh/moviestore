@@ -3,7 +3,7 @@
  */
 (function(){
     'use strict';
-    function movRating(movMoviesApi, movCommonApi){
+    function movRating(movMoviesApi){
         return {
             restrict : 'E',
             require : ['ngModel'],
@@ -59,7 +59,7 @@
 
         };
     }
-    movRating.$inject = ['movMoviesApi', 'movCommonApi'];
+    movRating.$inject = ['movMoviesApi'];
     angular.module('mov.common').directive('movRating', movRating);
 }());
 
