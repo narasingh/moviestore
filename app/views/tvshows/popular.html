@@ -1,7 +1,7 @@
 <div class="box_2 upcoming playing">
     <div class="col-md-12 grid_3">
         <div class="row_1">
-            <div class="col-md-3 grid_4 animate-repeat2" dir-paginate="tv in tvShowsTopratedCtrl.tvshows | itemsPerPage: tvShowsTopratedCtrl.pagination.per_page" total-items="tvShowsTopratedCtrl.pagination.total_results" current-page="tvShowsTopratedCtrl.pagination.current_page">
+            <div class="col-md-3 grid_4 animate-repeat2" dir-paginate="tv in popularTvCtrl.tvshows | itemsPerPage: popularTvCtrl.pagination.per_page" total-items="popularTvCtrl.pagination.total_results" current-page="popularTvCtrl.pagination.current_page">
                 <a href="#/moviedetails/{{ tv.id }}">
                     <div class="grid_2">
                     <span data-ng-if="tv.backdrop_path">

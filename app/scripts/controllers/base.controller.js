@@ -19,7 +19,7 @@
 
             self.tvTabs = [
                 {title : 'Top Rated', state : 'tvtoprated'},
-                {title : 'Popular', state : 'popular'},
+                {title : 'Popular', state : 'tvpopular'},
                 {title : 'On the Air', state : 'ontheair'},
                 {title : 'Airring Today', state : 'airing'}
             ];

@@ -1,10 +1,10 @@
 /**
- * Created by Narasingh on 11/15/2015.
+ * Created by Narasingh on 11/18/2015.
  */
 (function(){
-   'use strict';
+    'use strict';
 
-    function TopratedTvShowsController(TvshowsApi, movCommonApi, $scope){
+    function PopularTvController($scope, movCommonApi, TvshowsApi){
 
         var self = this;
         self.pageChanged = function(newPage){
@@ -12,7 +12,7 @@
             var params = {
                 page : newPage || 1
             }
-            TvshowsApi.getTopRatedTvShows().then(function(response) {
+            TvshowsApi.getPopularTvShows().then(function(response) {
                 var data = response.data;
                 self.pagination = {
                     per_page: 20,
@@ -25,8 +25,9 @@
             });
         };
         self.pageChanged();
+
     }
 
-    TopratedTvShowsController.$inject = ['TvshowsApi', 'movCommonApi', '$scope'];
-    angular.module('mov.tvshows').controller('TopratedTvShowsController', TopratedTvShowsController);
+    PopularTvController.$inject = ['$scope', 'movCommonApi', 'TvshowsApi'];
+    angular.module('mov.tvshows').controller('PopularTvController', PopularTvController);
 }());

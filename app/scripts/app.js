@@ -143,7 +143,12 @@
                 .state('tvtoprated', {
                     url : '/tvtoprated',
                     templateUrl : 'views/tvshows/top-rated.html',
-                    controller : 'PopularTvShowsController as tvShowsPopularCtrl'
+                    controller : 'TopratedTvShowsController as tvShowsTopratedCtrl'
+                })
+                .state('tvpopular', {
+                    url : '/tvpopular',
+                    templateUrl : 'views/tvshows/popular.html',
+                    controller : 'PopularTvController as popularTvCtrl'
                 });
 
                 //toastr config
