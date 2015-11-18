@@ -17,6 +17,13 @@
                 {title : 'Top Rated', state: 'latest'}
             ];
 
+            self.tvTabs = [
+                {title : 'Top Rated', state : 'tvtoprated'},
+                {title : 'Popular', state : 'popular'},
+                {title : 'On the Air', state : 'ontheair'},
+                {title : 'Airring Today', state : 'airing'}
+            ];
+
         }
         self.stateChange = function(){
             console.log($state.is('home'));

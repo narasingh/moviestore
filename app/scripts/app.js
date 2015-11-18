@@ -4,8 +4,23 @@
      * Initialize our application routes
      */
     angular.module('movapp',
-        ['ngStorage', 'ngAnimate', 'angularSpinner', 'toastr', 'mov.api', 'mov.common', 'mov.account', 'mov.movies','mov.featured', 'mov.search', 'mov.list',
-            'dc.endlessScroll', 'ui.router','angularUtils.directives.dirPagination', 'mov.authenticate', 'mov.people'])
+            ['ngStorage',
+            'ngAnimate',
+            'angularSpinner',
+            'toastr',
+            'mov.api',
+            'mov.common',
+            'mov.account',
+            'mov.movies',
+            'mov.featured',
+            'mov.search',
+            'mov.list',
+            'dc.endlessScroll',
+            'ui.router',
+            'angularUtils.directives.dirPagination',
+            'mov.authenticate',
+            'mov.people',
+            'mov.tvshows'])
         .config(['toastrConfig','$stateProvider' , '$urlRouterProvider', function (toastrConfig, $stateProvider, $urlRouterProvider) {
 
             $urlRouterProvider.otherwise('/home');
@@ -124,6 +139,11 @@
                             }
                         }]
                     }
+                })
+                .state('tvtoprated', {
+                    url : '/tvtoprated',
+                    templateUrl : 'views/tvshows/top-rated.html',
+                    controller : 'PopularTvShowsController as tvShowsPopularCtrl'
                 });
 
                 //toastr config
