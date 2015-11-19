@@ -1,0 +1,36 @@
+<div class="movie_top">
+    <div class="col-md-9 movie_box">
+        <div class="grid images_3_of_2">
+            <div class="movie_image">
+                <span class="movie_rating">{{tvshow.vote_average}}</span>
+                <img src="{{imageInfo.base_url}}{{imageInfo.logo_sizes[4]}}{{tvshow.poster_path}}" class="img-responsive" alt=""/>
+            </div>
+            <div class="movie_rate">
+                <div class="rating_desc"><p>Your Vote :</p></div>
+                <form action="" class="sky-form">
+                    <fieldset>
+                        <section>
+                            <mov-rating ng-model="tvshow.rating" max="10" data-mov-id="{{tvshow.id}}"></mov-rating>
+                        </section>
+                    </fieldset>
+                </form>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="desc1 span_3_of_2">
+            <p class="movie_option"><strong>Title: </strong><a href="#">{{tvshow.name}}</a></p>
+            <p class="movie_option"><strong>First air Date: </strong>{{tvshow.first_air_date | date: 'yyyy-mm-dd'}}</p>
+            <p class="movie_option"><strong>Last air Date: </strong>{{tvshow.last_air_date | date: 'yyyy-mm-dd'}}</p>
+            <p class="movie_option"><strong>Overview: </strong> {{tvshow.overview}}</p>
+            <add-to-list data-type="detail" data-media-type="movie" data-media-id="{{tvshow.id}}"></add-to-list>
+        </div>
+        <div class="clearfix"> </div>
+        <p class="m_4">{{tvshow.description}}</p>
+        <data-ng-include src="'views/comments.html'"></data-ng-include>
+    </div>
+    <div class="col-md-3">
+        <mov-similar-movies id="{{tvshow.id}}" no-of-records="3" image-url="{{tvshow.base_url}}{{tvshow.backdrop_sizes[0]}}"></mov-similar-movies>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+</div>

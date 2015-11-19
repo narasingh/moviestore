@@ -2,7 +2,7 @@
     <div class="col-md-12 grid_3">
         <div class="row_1">
             <div class="col-md-3 grid_4 animate-repeat2" dir-paginate="tv in popularTvCtrl.tvshows | itemsPerPage: popularTvCtrl.pagination.per_page" total-items="popularTvCtrl.pagination.total_results" current-page="popularTvCtrl.pagination.current_page">
-                <a href="#/moviedetails/{{ tv.id }}">
+                <a href="#/showdetails/{{ tv.id }}">
                     <div class="grid_2">
                     <span data-ng-if="tv.backdrop_path">
                         <img src="{{imageInfo.base_url}}{{imageInfo.backdrop_sizes[0]}}{{tv.backdrop_path}}" class="img-responsive" alt="{{tv.name}}"/>

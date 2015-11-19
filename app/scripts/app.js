@@ -149,6 +149,11 @@
                     url : '/tvpopular',
                     templateUrl : 'views/tvshows/popular.html',
                     controller : 'PopularTvController as popularTvCtrl'
+                })
+                .state('showdetails',{
+                    url : '/showdetails/:id',
+                    templateUrl : 'views/tvshows/details.html',
+                    controller : 'ShowDetailsController'
                 });
 
                 //toastr config
