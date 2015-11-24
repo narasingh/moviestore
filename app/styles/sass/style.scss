@@ -2155,3 +2155,13 @@ div.register-bottom-grid {
 		}
 	}
 }
+
+.movie_top{
+    .tv-season{
+        margin-top: 30px;
+    }
+}
+.ng-animate.item:not(.left):not(.right) {
+    -webkit-transition: 0s ease-in-out left;
+    transition: 0s ease-in-out left
+}

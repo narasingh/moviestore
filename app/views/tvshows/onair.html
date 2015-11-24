@@ -1,0 +1,30 @@
+<div class="box_2 upcoming playing">
+    <div class="col-md-12 grid_3">
+        <div class="row_1">
+            <div class="col-md-3 grid_4 animate-repeat2" dir-paginate="tvshow in onairCtrl.tvshows | itemsPerPage: onairCtrl.pagination.per_page" total-items="onairCtrl.pagination.total_results" current-page="onairCtrl.pagination.current_page">
+                <a href="#/showdetails/{{ tvshow.id }}">
+                    <div class="grid_2">
+                    <span data-ng-if="tvshow.backdrop_path">
+                        <img src="{{imageInfo.base_url}}{{imageInfo.backdrop_sizes[0]}}{{tvshow.backdrop_path}}" class="img-responsive" alt="{{tvshow.original_title}}"/>
+                    </span>
+                    <span data-ng-if="!tvshow.backdrop_path">
+                         <img src="images/no-image.jpg" class="img-responsive" alt="{{tvshow.original_title}}" height="144"/>
+                    </span>
+                        <div class="caption1">
+                            <ul class="list_3">
+                                <li><i class="icon5"> </i><p>{{ tvshow.popularity }}</p></li>
+                            </ul>
+                            <i class="icon4"> </i>
+                            <p class="m_3">{{ tvshow.original_title }}</p>
+                        </div>
+                        <add-to-list></add-to-list>
+                    </div>
+                </a></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-xs-9 text-center">
+            <dir-pagination-controls on-page-change="onairCtrl.pageChanged(newPageNumber)"></dir-pagination-controls>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>

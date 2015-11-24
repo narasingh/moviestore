@@ -1,18 +1,16 @@
 /**
- * Created by Narasingh on 11/15/2015.
+ * Created by Narasingh on 11/24/2015.
  */
 (function(){
-   'use strict';
-
-    function TopratedTvShowsController(TvshowsApi, movCommonApi, $scope){
-
+    'use strict';
+    function OntheairController(TvshowsApi, movCommonApi, $scope){
         var self = this;
         self.pageChanged = function(newPage){
 
             var params = {
                 page : newPage || 1
             }
-            TvshowsApi.getTopRatedTvShows(params).then(function(response) {
+            TvshowsApi.getTvShowsOnAir(params).then(function(response) {
                 var data = response.data;
                 self.pagination = {
                     per_page: 20,
@@ -27,6 +25,6 @@
         self.pageChanged();
     }
 
-    TopratedTvShowsController.$inject = ['TvshowsApi', 'movCommonApi', '$scope'];
-    angular.module('mov.tvshows').controller('TopratedTvShowsController', TopratedTvShowsController);
+    OntheairController.$inject = ['TvshowsApi', 'movCommonApi', '$scope'];
+    angular.module('mov.tvshows').controller('OntheairController', OntheairController);
 }());

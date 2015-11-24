@@ -18,18 +18,38 @@
             </div>
         </div>
         <div class="desc1 span_3_of_2">
-            <p class="movie_option"><strong>Title: </strong><a href="#">{{tvshow.name}}</a></p>
+            <p class="movie_option"><strong>Title: </strong><a href="{{tvshow.homepage}}" target="_blank">{{tvshow.name}}</a></p>
             <p class="movie_option"><strong>First air Date: </strong>{{tvshow.first_air_date | date: 'yyyy-mm-dd'}}</p>
             <p class="movie_option"><strong>Last air Date: </strong>{{tvshow.last_air_date | date: 'yyyy-mm-dd'}}</p>
             <p class="movie_option"><strong>Overview: </strong> {{tvshow.overview}}</p>
             <add-to-list data-type="detail" data-media-type="movie" data-media-id="{{tvshow.id}}"></add-to-list>
+            <hr>
+            <p><strong>Backdrops</strong></p>
+        </div>
+        <div class="desc1 span_3_of_2 tv-season">
+            <div class="clearfix"></div>
+            <div class="col-xs-12">
+                <p><strong>Seasons</strong></p>
+                <ul class="media-list">
+                    <li ng-repeat="season in tvshow.seasons" class="media animate-repeat">
+                        <a href="#wathepisode/{{season.id}}" class="movie-beta__link pull-left">
+                            <img data-ng-if="season.poster_path" src="{{imageInfo.base_url}}{{imageInfo.still_sizes[0]}}{{season.poster_path}}" class="img-responsive" alt="" width="63" height="91" />
+                            <img data-ng-if="!season.poster_path" src="images/no-image.jpg" class="img-responsive" alt=""/>
+                        </a>
+                        <div class="media-body">
+                            <h5 class="media-heading">Season {{season.season_number}} ({{ season.air_date | date:'yyyy' }}) {{season.episode_count}} Episodes </h5>
+                            <p><strong>Air Date: </strong> {{season.air_date}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="clearfix"> </div>
         <p class="m_4">{{tvshow.description}}</p>
         <data-ng-include src="'views/comments.html'"></data-ng-include>
     </div>
     <div class="col-md-3">
-        <mov-similar-movies id="{{tvshow.id}}" no-of-records="3" image-url="{{tvshow.base_url}}{{tvshow.backdrop_sizes[0]}}"></mov-similar-movies>
+
     </div>
     <div class="clearfix"> </div>
 </div>

@@ -150,6 +150,16 @@
                     templateUrl : 'views/tvshows/popular.html',
                     controller : 'PopularTvController as popularTvCtrl'
                 })
+                .state('ontheair', {
+                    url : '/ontheair',
+                    templateUrl : 'views/tvshows/onair.html',
+                    controller : 'OntheairController as onairCtrl'
+                })
+                .state('airing', {
+                    url : '/airing',
+                    templateUrl : 'views/tvshows/onair.html',
+                    controller : 'AiringController as onairCtrl'
+                })
                 .state('showdetails',{
                     url : '/showdetails/:id',
                     templateUrl : 'views/tvshows/details.html',
