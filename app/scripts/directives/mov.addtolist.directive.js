@@ -10,7 +10,8 @@
             scope : {
                 type : '@type',
                 mediaType : '@mediaType',
-                mediaId : '@mediaId'
+                mediaId : '@mediaId',
+                videos : '=videos'
             },
             link : function(scope){
 

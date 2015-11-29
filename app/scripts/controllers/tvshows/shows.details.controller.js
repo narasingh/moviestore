@@ -16,6 +16,10 @@
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
 
+        TvshowsApi.getVideos({ extraParams : extraParams }).then(function(response){
+            $scope.videos = response.data;
+        });
+
         TvshowsApi.getTvInfo({ extraParams : extraParams, append_to_response : 'images' }).then(function(response){
             $scope.tvshow = response.data;
             $scope.tvshow.rating = 0;
