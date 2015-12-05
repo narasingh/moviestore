@@ -1,14 +1,24 @@
 <div class="header_top">
     <div class="col-sm-3 logo"><a href="index.html#home"><img src="images/logo.png" alt=""/></a></div>
-    <div class="col-sm-6 nav">
+    <div class="col-sm-3 nav">
         <ul>
             <li><span class="simptip-position-bottom simptip-movable" data-tooltip="people"><a href="#popular.person"> </a></span></li>
             <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"><a href="#home"> </a> </span></li>
-            <li><span class="simptip-position-bottom simptip-movable" data-tooltip="video"><a href="movie.html"> </a></span></li>
-            <li><span class="simptip-position-bottom simptip-movable" data-tooltip="game"><a href="movie.html"> </a></span></li>
+            <!--<li><span class="simptip-position-bottom simptip-movable" data-tooltip="game"><a href="movie.html"> </a></span></li>-->
             <li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a href="#tvtoprated"> </a></span></li>
-            <li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a href="movie.html"> </a></span></li>
         </ul>
+    </div>
+    <div class="col-sm-3 nav">
+        <form class="navbar-right" data-ng-controller="SearchCtrl" data-ng-submit="search(data)">
+            <div class="input-group">
+                <input type="Search" placeholder="Search..." class="form-control" data-ng-model="data.search" />
+                <div class="input-group-btn">
+                    <button class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="col-sm-3 header_right">
         <user-info></user-info>
