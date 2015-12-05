@@ -964,7 +964,7 @@
                 return output;
             },
             find : function(data){
-                return $http.get(baseUrl + 'find/{id}' , { params : data });
+                return $http.get(baseUrl + 'search/movie' , { params : data });
             }
 
         };

@@ -7,7 +7,8 @@
     function SearchCtrl($scope, movCommonApi){
 
         $scope.search = function(data){
-            movCommonApi.find(data.searchText).then(function(response){
+
+            movCommonApi.find({query : data.search}).then(function(response){
                 console.log(response);
             });
         }
