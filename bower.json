@@ -1,6 +1,6 @@
 {
   "name": "moviestore",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a movie site build in angular",
   "homepage": "https://github.com/narasingh/moviestore.git",
   "license": "MIT",
