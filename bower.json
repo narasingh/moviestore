@@ -1,8 +1,23 @@
 {
   "name": "moviestore",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "a movie site build in angular",
+  "homepage": "https://github.com/narasingh/moviestore.git",
+  "license": "MIT",
+  "authors": ["narasinghsays@gmail.com"],
   "dependencies": {
-    "jquery": "1.9",
-    "angular": "~1.4"
+    "jquery": "~2.2.4",
+    "angular": "~1.5.7",
+    "angular-cookies": "1.2.30",
+    "ngstorage": "0.3.10",
+    "ui-router": "0.2.18",
+    "spin.js": "2.3.2",
+    "angular-spinner": "~0.7.0",
+    "angular-utils-pagination": "~0.11.1",
+    "angular-ui-tabs": "0.1.6",
+    "angular-animate": "1.2.30",
+    "angular-toastr": "1.7.0",
+    "bootstrap": "3.3.6",
+    "angular-endless-scroll": "~0.1.0"
   }
 }

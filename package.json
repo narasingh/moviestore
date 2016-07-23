@@ -25,7 +25,8 @@
     "grunt-open": "~0.1.0",
     "grunt-regarde": "~0.1.1",
     "grunt-usemin": "2.6.2",
-    "matchdep": "~0.1.1"
+    "matchdep": "~0.1.1",
+    "gruntacular": "~0.3.0"
   },
   "engines": {
     "node": ">=0.8.0"

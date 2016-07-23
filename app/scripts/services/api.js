@@ -56,7 +56,7 @@
                 if(response.data && response.data.status_code){
                     $rootScope.$broadcast('mov-success.handler', response);
                 }
-                return $q.resolve(response);
+                return $q.when(response);
             },
             responseError : function(rejection){
                 $rootScope.$broadcast('us-spinner:stop', 'spinner-1');
